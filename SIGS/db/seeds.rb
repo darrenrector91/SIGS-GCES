@@ -8,25 +8,25 @@
 
 # Departaments
 puts "Creating Departaments"
-department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL')
-department_2 = Department.create(code: '781', name: 'PRC', wing: 'SUL')
-department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE')
+department = Department.find_or_create_by(code: '789', name: 'Engenharia', wing: 'SUL')
+department_2 = Department.find_or_create_by(code: '781', name: 'PRC', wing: 'SUL')
+department_3 = Department.find_or_create_by(code: '156', name: 'Artes', wing: 'NORTE')
 
 # Courses
 puts "Creating Courses"
-course = Course.create(code: '10', name: 'Engenharia de Software', department: department, shift: 1)
-course_2 = Course.create(code: '12', name: 'Engenharia Eletrônica', department: department, shift: 1)
-course_3 = Course.create(code: '12', name: 'Engenharia Automotiva', department: department, shift: 2)
-course_4 = Course.create(code: '09', name: 'Artes Visuais', department: department_3, shift: 2)
+course = Course.find_or_create_by(code: '10', name: 'Engenharia de Software', department: department, shift: 1)
+course_2 = Course.find_or_create_by(code: '12', name: 'Engenharia Eletrônica', department: department, shift: 1)
+course_3 = Course.find_or_create_by(code: '12', name: 'Engenharia Automotiva', department: department, shift: 2)
+course_4 = Course.find_or_create_by(code: '09', name: 'Artes Visuais', department: department_3, shift: 2)
 
 # Users - Coordinator
 puts "Creating Coordinator Users"
 user = User.create(name: 'Caio Filipe', email: 'caio@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
-coordinator = Coordinator.create(user: user, course: course_2)
+coordinator = Coordinator.find_or_create_by(user: user, course: course_2)
 user_2 = User.create(name: 'João Busche', email: 'joao@unb.br', cpf: '05044448888', registration: '1234544', active: 0, password: '123456')
-coordinator_2 = Coordinator.create(user: user_2, course: course_4)
+coordinator_2 = Coordinator.find_or_create_by(user: user_2, course: course_4)
 user_3 = User.create(name: 'Daniel Marques', email: 'denes@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
-coordinator_3 = Coordinator.create(user: user_3, course: course_4)
+coordinator_3 = Coordinator.find_or_create_by(user: user_3, course: course_4)
 
 # Users - Deg
 puts "Creating DEG Users"
@@ -53,8 +53,8 @@ buildings = Building.create([
 
 # Categories
 puts "Creating Categories"
-category = Category.create(name: 'Laboratório Químico')
-category_2 = Category.create(name: 'Retroprojetor')
+category = Category.find_or_create_by(name: 'Laboratório Químico')
+category_2 = Category.find_or_create_by(name: 'Retroprojetor')
 
 # Rooms
 puts "Creating Rooms"
@@ -68,10 +68,10 @@ room_6 = Room.create(code: '987111', name: 'S4', capacity: 80, active: true, tim
 
 # Disciplines
 puts "Creating Disciplines"
-discipline = Discipline.create(code: '876', name: 'Cálculo 3', department: department)
-discipline_2 = Discipline.create(code: '777', name: 'Cálculo 2', department: department)
-discipline_3 = Discipline.create(code: '773', name: 'Cálculo 1', department: department)
-discipline_4 = Discipline.create(code: '774', name: 'Artes Visuais', department: department_3)
+discipline = Discipline.find_or_create_by(code: '876', name: 'Cálculo 3', department: department)
+discipline_2 = Discipline.find_or_create_by(code: '777', name: 'Cálculo 2', department: department)
+discipline_3 = Discipline.find_or_create_by(code: '773', name: 'Cálculo 1', department: department)
+discipline_4 = Discipline.find_or_create_by(code: '774', name: 'Artes Visuais', department: department_3)
 
 #SchoolRooms
 puts "Creating School Rooms"
@@ -84,12 +84,13 @@ school_room_6 = SchoolRoom.create(name:'BB', discipline: discipline_4, vacancies
 
 # Periods
 puts "Creating Periods"
-period = Period.create(period_type:'Alocação', initial_date: '10-01-2018', final_date: '01-02-2018')
-period_2 = Period.create(period_type:'Ajuste', initial_date: '23-02-2018', final_date: '01-03-2018')
-period_3 = Period.create(period_type:'Letivo', initial_date: '08-03-2018', final_date: '14-07-2018')
+period = Period.find_or_create_by(period_type:'Alocação', initial_date: '10-01-2018', final_date: '01-02-2018')
+period_2 = Period.find_or_create_by(period_type:'Ajuste', initial_date: '23-02-2018', final_date: '01-03-2018')
+period_3 = Period.find_or_create_by(period_type:'Letivo', initial_date: '08-03-2018', final_date: '14-07-2018')
 
 # Allocations
 puts "Creating Allocations"
+=begin
 allocation = Allocation.create(user_id: user.id, room_id: room.id, school_room_id: school_room_2.id, day: "Segunda", start_time: '14:00:00', final_time: '16:00:00', active: true)
 allocation_2 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_2.id, day: "Quarta", start_time: '14:00:00', final_time: '16:00:00', active: true)
 allocation_3 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_2.id, day: "Sexta", start_time: '14:00:00', final_time: '16:00:00', active: true)
@@ -104,10 +105,11 @@ allocation_11 = Allocation.create(user_id: user.id, room_id: room_4.id, school_r
 allocation_10 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_5.id, day: "Quinta", start_time: '10:00:00', final_time: '12:00:00', active: true)
 allocation_11 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Sexta", start_time: '10:00:00', final_time: '12:00:00', active: true)
 allocation_12 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Quarta", start_time: '14:00:00', final_time: '18:00:00', active: true)
+=end
 
 # Extension Allocations
 puts "Creating Extension Allocations"
-allocation_extension_1 = AllocationExtension.create(user_id: user.id, room_id: room.id, start_time: '18:00:00', final_time: '19:00:00', inicial_date: '06-07-2017', final_date: '06-07-2017', periodicity: "Quinzenal")
+allocation_extension_1 = AllocationExtension.find_or_create_by(user_id: user.id, room_id: room.id, start_time: '18:00:00', final_time: '19:00:00', inicial_date: '06-07-2017', final_date: '06-07-2017', periodicity: "Quinzenal")
 
 # Token and Secrets
 SECRET ||= '$2a$10$reXHMgegkckEKlceQ.0S5u/L44tbhU46C8TCdSn8HOePlEvnGYTI.'
@@ -119,6 +121,6 @@ TOKEN_3 ||= 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiTWF0aGV1cyBGcmFuY2
 
 # API Users
 puts "Creating API Users"
-api_user = ApiUser.create(name: 'Ana Paula Chaves', email: 'anapaula.chaves@gmail.com', secret: SECRET, token: TOKEN, user: user_5)
-api_user_2 = ApiUser.create(name: 'Gustavo Freire Oliveira', email: 'freire.oliveira@hotmail.com', secret: SECRET_2, token: TOKEN_2, user: user_5)
-api_user_3 = ApiUser.create(name: 'Matheus Francisco dos Santos', email: 'matheus-francisco@yahoo.com', secret: SECRET_3, token: TOKEN_3, user: user)
+api_user = ApiUser.find_or_create_by(name: 'Ana Paula Chaves', email: 'anapaula.chaves@gmail.com', secret: SECRET, token: TOKEN, user: user_5)
+api_user_2 = ApiUser.find_or_create_by(name: 'Gustavo Freire Oliveira', email: 'freire.oliveira@hotmail.com', secret: SECRET_2, token: TOKEN_2, user: user_5)
+api_user_3 = ApiUser.find_or_create_by(name: 'Matheus Francisco dos Santos', email: 'matheus-francisco@yahoo.com', secret: SECRET_3, token: TOKEN_3, user: user)
