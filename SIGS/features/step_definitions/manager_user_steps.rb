@@ -1,6 +1,6 @@
 Given (/^I am logged in as assistant administrative$/) do
 	visit 'http://192.168.2.15:3000'
-	fill_in('session[email]', :with=> 'wallacy@unb.br')
+	fill_in('session[email]', :with=> 'adm@unb.br')
 	fill_in('session[password]', :with=> '123456')
 	click_button('Entrar')
 	expect(page).to have_content('Login realizado com sucesso')

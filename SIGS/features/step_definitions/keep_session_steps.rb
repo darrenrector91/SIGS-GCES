@@ -3,7 +3,7 @@ Given (/^I am on the log in page$/) do
 end
 
 And (/^I fill in 'email' with 'wallacy@unb.br'$/) do
-	fill_in('session[email]', :with=> 'wallacy@unb.br')
+	fill_in('session[email]', :with=> 'adm@unb.br')
 end
 
 And (/^I fill in 'email' with 'invalidbot'$/) do
