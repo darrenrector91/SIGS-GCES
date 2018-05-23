@@ -90,22 +90,20 @@ period_3 = Period.find_or_create_by(period_type:'Letivo', initial_date: '08-03-2
 
 # Allocations
 puts "Creating Allocations"
-=begin
-allocation = Allocation.create(user_id: user.id, room_id: room.id, school_room_id: school_room_2.id, day: "Segunda", start_time: '14:00:00', final_time: '16:00:00', active: true)
-allocation_2 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_2.id, day: "Quarta", start_time: '14:00:00', final_time: '16:00:00', active: true)
-allocation_3 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_2.id, day: "Sexta", start_time: '14:00:00', final_time: '16:00:00', active: true)
-allocation_4 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_3.id, day: "Segunda", start_time: '08:00:00', final_time: '10:00:00', active: true)
-allocation_5 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_3.id, day: "Quarta", start_time: '08:00:00', final_time: '10:00:00', active: true)
-allocation_6 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_3.id, day: "Sexta", start_time: '08:00:00', final_time: '10:00:00', active: true)
-allocation_7 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_4.id, day: "Segunda", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_8 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_4.id, day: "Quarta", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_9 = Allocation.create(user_id: user.id, room_id: room_2.id, school_room_id: school_room_4.id, day: "Sexta", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_10 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_5.id, day: "Terça", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_11 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Terça", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_10 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_5.id, day: "Quinta", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_11 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Sexta", start_time: '10:00:00', final_time: '12:00:00', active: true)
-allocation_12 = Allocation.create(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Quarta", start_time: '14:00:00', final_time: '18:00:00', active: true)
-=end
+allocation = Allocation.find_or_create_by(user_id: user.id, room_id: room.id, school_room_id: school_room_2.id, day: "Segunda", start_time: '14:00:00', final_time: '16:00:00', active: true)
+allocation_2 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_2.id, day: "Quarta", start_time: '14:00:00', final_time: '16:00:00', active: true)
+allocation_3 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_2.id, day: "Sexta", start_time: '14:00:00', final_time: '16:00:00', active: true)
+allocation_4 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_3.id, day: "Segunda", start_time: '08:00:00', final_time: '10:00:00', active: true)
+allocation_5 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_3.id, day: "Quarta", start_time: '08:00:00', final_time: '10:00:00', active: true)
+allocation_6 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_3.id, day: "Sexta", start_time: '08:00:00', final_time: '10:00:00', active: true)
+allocation_7 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_4.id, day: "Segunda", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_8 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_4.id, day: "Quarta", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_9 = Allocation.find_or_create_by(user_id: user.id, room_id: room_2.id, school_room_id: school_room_4.id, day: "Sexta", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_10 = Allocation.find_or_create_by(user_id: user.id, room_id: room_4.id, school_room_id: school_room_5.id, day: "Terça", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_11 = Allocation.find_or_create_by(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Terça", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_10 = Allocation.find_or_create_by(user_id: user.id, room_id: room_4.id, school_room_id: school_room_5.id, day: "Quinta", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_11 = Allocation.find_or_create_by(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Sexta", start_time: '10:00:00', final_time: '12:00:00', active: true)
+allocation_12 = Allocation.find_or_create_by(user_id: user.id, room_id: room_4.id, school_room_id: school_room_6.id, day: "Quarta", start_time: '14:00:00', final_time: '18:00:00', active: true)
 
 # Extension Allocations
 puts "Creating Extension Allocations"

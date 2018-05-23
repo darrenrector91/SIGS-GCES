@@ -20,16 +20,9 @@ class Allocation < ApplicationRecord
 
   def validate_hours
     school_allocated = 'Turma já alocada neste horário'
-    errors.add(:start_time, 'Horário inválido') if invalid_shift
     error_mensager = 'Alocação com horário não vago ou capacidade da sala cheia'
     errors.add(:start_time, error_mensager) if verify_time_shock_room_day
     errors.add(:start_time, school_allocated) if verify_same_school_room_schock
-  end
-
-  def invalid_shift
-    shift = school_room.courses[0].shift
-    (shift == 1 && final_time.strftime('%H').to_i > 18) ||
-      (shift == 2 && start_time.strftime('%H').to_i < 18)
   end
 
   def verify_time_shock_room_day
