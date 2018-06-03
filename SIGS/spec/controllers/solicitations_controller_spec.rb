@@ -225,9 +225,9 @@ end
       @department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE')
       @course_2 = Course.create(code: '12', name: 'Engenharia Eletrônica', department: @department, shift: 1)
       @course_4 = Course.create(code: '09', name: 'Artes Visuais', department: @department_3, shift: 2)
-      @user = User.create(name: 'Caio Filipe', email: 'caio@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
+      @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
       @coordinator = Coordinator.create(user: @user, course: @course_2)
-      @user_3 = User.create(name: 'Daniel Marques', email: 'denes@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
+      @user_3 = User.create(name: 'Daniel Marques', email: 'coordenador2@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
       @coordinator_3 = Coordinator.create(user: @user_3, course: @course_4)
       @buildings = Building.create([
         {code: 'pjc', name: 'Pavilhão João Calmon', wing: 'NORTE'},
@@ -273,9 +273,9 @@ end
       @department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE')
       @course_2 = Course.create(code: '12', name: 'Engenharia Eletrônica', department: @department, shift: 1)
       @course_4 = Course.create(code: '09', name: 'Artes Visuais', department: @department_3, shift: 2)
-      @user = User.create(name: 'Caio Filipe', email: 'caio@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
+      @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
       @coordinator = Coordinator.create(user: @user, course: @course_2)
-      @user_3 = User.create(name: 'Daniel Marques', email: 'denes@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
+      @user_3 = User.create(name: 'Daniel Marques', email: 'coordenador2@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
       @coordinator_3 = Coordinator.create(user: @user_3, course: @course_4)
       @buildings = Building.create([
         {code: 'pjc', name: 'Pavilhão João Calmon', wing: 'NORTE'},

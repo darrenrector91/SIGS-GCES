@@ -9,9 +9,9 @@ RSpec.describe AllocationsController, type: :controller do
       @course = Course.create(code: '10', name: 'Engenharia de Software', department: @department, shift: 1)
       @building = Building.create(code: 'pjc', name: 'Pavilhão João Calmon', wing: 'Norte')
       @category = Category.create(name: 'Retroprojetor')
-      @user = User.create(name: 'Caio Filipe', email: 'caio@unb.br',
+      @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br',
         cpf: '05012345678', registration: '1234567', active: true, password: '123456')
-      @user_2 = User.create(name: 'joao silva', email: 'joaferrera@unb.br',
+      @user_2 = User.create(name: 'joao silva', email: 'deg@unb.br',
         password: '123456', registration:'1100069', cpf:'04601407380', active: true)
       @coordinator = Coordinator.create(user: @user ,course: @course )
       @deg = Deg.create(user: @user_2)
