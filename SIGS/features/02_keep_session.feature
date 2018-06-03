@@ -5,7 +5,7 @@ Feature: Login
 
 	Scenario: Log in a valid user
 		Given I am on the log in page
-		And I fill in 'email' with 'wallacy@unb.br'
+		And I fill in 'email' with 'adm@unb.br'
 		And I fill in 'password' with '123456'
 		When I press 'Entrar' button
 		Then the initial page should load with notice message 'Login realizado com sucesso'

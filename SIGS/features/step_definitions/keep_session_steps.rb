@@ -2,7 +2,7 @@ Given (/^I am on the log in page$/) do
 	visit 'http://192.168.2.15:3000'
 end
 
-And (/^I fill in 'email' with 'wallacy@unb.br'$/) do
+And (/^I fill in 'email' with 'adm@unb.br'$/) do
 	fill_in('session[email]', :with=> 'adm@unb.br')
 end
 
