@@ -52,7 +52,7 @@ Then (/^the initial page should load with notice message 'Conta Excluída'$/) do
 end
 
 When (/^I delete another assistant administrative$/) do
-	@user = User.find_by(email: 'carlos@unb.br')
+	@user = User.find_by(email: 'adm1@unb.br')
   @user.destroy
 end
 
@@ -80,7 +80,7 @@ Then(/^the 'Usuarios Registrados' page should load with notice message 'Usuário
 end
 
 When (/^I delete anothers registration users$/) do
-  users = User.where('email != ? and active = true', 'wallacy@unb.br')
+  users = User.where('email != ? and active = true', 'adm@unb.br')
   users.each do |user|
     user.destroy
   end

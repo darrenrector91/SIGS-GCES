@@ -3,7 +3,7 @@ And (/^change date of allocation period$/) do
 end
 
 When (/^click in solicitation link$/) do
-  find("a[href='/solicitations/allocation_period/3']").click
+  find("a[href='/solicitations/allocation_period/1']").click
 end
 
 Then (/^expected 'Período de Alocação'$/) do
