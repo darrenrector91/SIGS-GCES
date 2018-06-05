@@ -21,25 +21,25 @@ course_4 = Course.find_or_create_by(code: '09', name: 'Artes Visuais', departmen
 
 # Users - Coordinator
 puts "Creating Coordinator Users"
-user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
+user = User.create(name: 'Caio Filipe', email: 'coordenador1@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
 coordinator = Coordinator.find_or_create_by(user: user, course: course_2)
-user_2 = User.create(name: 'João Busche', email: 'coordenador1@unb.br', cpf: '05044448888', registration: '1234544', active: 0, password: '123456')
+user_2 = User.create(name: 'João Busche', email: 'coordenador2@unb.br', cpf: '05044448888', registration: '1234544', active: 0, password: '123456')
 coordinator_2 = Coordinator.find_or_create_by(user: user_2, course: course_4)
-user_3 = User.create(name: 'Daniel Marques', email: 'coordenador2@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
+user_3 = User.create(name: 'Daniel Marques', email: 'coordenador3@unb.br', cpf: '05044348888', registration: '1234546', active: 1, password: '123456')
 coordinator_3 = Coordinator.find_or_create_by(user: user_3, course: course_4)
 
 # Users - Deg
 puts "Creating DEG Users"
-user_3 = User.create(name: 'João Pedro', email: 'deg@unb.br', cpf: '05012349999', registration: '1234599', active: 1, password: '123456')
+user_3 = User.create(name: 'João Pedro', email: 'deg1@unb.br', cpf: '05012349999', registration: '1234599', active: 1, password: '123456')
 department_assistant = Deg.create(user: user_3)
-user_4 = User.create(name: 'Ateldy Brasil', email: 'deg1@unb.br', cpf: '05022446688', registration: '1234333', active: 0, password: '123456')
+user_4 = User.create(name: 'Ateldy Brasil', email: 'deg2@unb.br', cpf: '05022446688', registration: '1234333', active: 0, password: '123456')
 department_assistant_2 = Deg.create(user: user_4)
 
 # Users - AdministrativeAssistant
 puts "Creating Administrative Assistant Users"
-user_5 = User.create(name: 'Wallacy Braz', email: 'adm@unb.br', cpf: '05012348888', registration: '1234588', active: 1, password: '123456')
+user_5 = User.create(name: 'Wallacy Braz', email: 'adm1@unb.br', cpf: '05012348888', registration: '1234588', active: 1, password: '123456')
 administrative_assistant = AdministrativeAssistant.create(user: user_5)
-user_6 = User.create(name: 'Carlos Aragon', email: 'adm1@unb.br', cpf: '05022248811', registration: '2224588', active: 0, password: '123456')
+user_6 = User.create(name: 'Carlos Aragon', email: 'adm2@unb.br', cpf: '05022248811', registration: '2224588', active: 0, password: '123456')
 administrative_assistant_2 = AdministrativeAssistant.create(user: user_6)
 
 # Buildings
