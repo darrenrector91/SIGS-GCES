@@ -9,9 +9,9 @@ RSpec.describe AllocationsController, type: :controller do
       @course = Course.create(code: '10', name: 'Engenharia de Software', department: @department, shift: 1)
       @building = Building.create(code: 'pjc', name: 'Pavilhão João Calmon', wing: 'Norte')
       @category = Category.create(name: 'Retroprojetor')
-      @user = User.create(name: 'Caio Filipe', email: 'caio@unb.br',
+      @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br',
         cpf: '05012345678', registration: '1234567', active: true, password: '123456')
-      @user_2 = User.create(name: 'joao silva', email: 'joaferrera@unb.br',
+      @user_2 = User.create(name: 'joao silva', email: 'deg@unb.br',
         password: '123456', registration:'1100069', cpf:'04601407380', active: true)
       @coordinator = Coordinator.create(user: @user ,course: @course )
       @deg = Deg.create(user: @user_2)
@@ -72,20 +72,6 @@ RSpec.describe AllocationsController, type: :controller do
       }
       expect(response).to redirect_to(allocations_new_path(@school_room.id))
       expect(flash[:error]).to eq('Informe a Sala')
-    end
-
-    it "should not create an allocation with invalid shift" do
-      sign_in(@user)
-      post :create, params:{
-        Segunda: {"19": {room_id:@room.id,school_room_id:@school_room.id, day:"Segunda",start_time:"19:00",final_time:"21:00", active: 1}},
-        Terça: {"12": {room_id:@room.id,school_room_id:@school_room.id, day:"Terça",start_time:"12:00",final_time:"14:00", active: 1}},
-        Quarta: {"12": {room_id:@room.id,school_room_id:@school_room.id, day:"Quarta",start_time:"12:00",final_time:"14:00", active: 1}},
-        Quinta: {"12": {room_id:@room.id,school_room_id:@school_room.id, day:"Quinta",start_time:"12:00",final_time:"14:00", active: 1}},
-        Sexta: {"12": {room_id:@room.id,school_room_id:@school_room.id, day:"Sexta",start_time:"12:00",final_time:"14:00", active: 1}},
-        Sábado: {"12": {room_id:@room.id,school_room_id:@school_room.id, day:"Sábado",start_time:"12:00",final_time:"14:00", active: 1}}
-      }
-      expect(response).to redirect_to(allocations_new_path(@school_room.id))
-      expect(flash[:error]).to eq('Horário inválido')
     end
 
     it "should not create an allocation if already exists an allocation with the same time and different discipline" do

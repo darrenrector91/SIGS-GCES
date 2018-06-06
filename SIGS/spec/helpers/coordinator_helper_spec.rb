@@ -7,7 +7,7 @@ RSpec.describe CoordinatorHelper, type: :helper do
     before(:each) do
       @department = Department.create(code: '789', name: 'Engenharia')
       @course = Course.create(code: '10', name: 'Engenharia de Software', department: @department)
-      @user = User.create(name: 'Caio Filipe', email: 'caio@unb.br', cpf: '05012345678', registration: '1234567', active: true, password: '123456')
+      @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: true, password: '123456')
       @coordinator = Coordinator.create(user: @user, course: @course)
       @discipline = Discipline.create(code: '876', name: 'Calculo 3', department: @department)
     end
