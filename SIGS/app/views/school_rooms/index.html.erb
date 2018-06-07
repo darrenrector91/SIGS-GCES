@@ -52,11 +52,11 @@
           </td>
             <td style="text-align:center">
               <% if !allocated? school_room.id %>
-                <%= link_to allocations_new_path(school_room.id) do %>
+                <%= link_to allocations_new_path(school_room.id), :id => 'Icon alloc' do %>
                 <i class="fa fa-plus allocate-plus"></i>
                 <% end %>
               <% else %>
-                <%= link_to allocations_destroy_path(school_room.id) do %>
+                <%= link_to allocations_destroy_path(school_room.id), :id => 'Icon alloc' do %>
                   <i class="fa fa-minus allocate-minus"></i>
                   <% end %>
               <% end %>
@@ -72,7 +72,7 @@
             </td>
 
             <td style="text-align:center">
-              <%= link_to school_rooms_edit_path(school_room.id) do %>
+              <%= link_to school_rooms_edit_path(school_room.id), :id => 'Icon edit' do %>
                 <i class="fa fa-edit edit-allocation"></i>
               <% end %>
 
