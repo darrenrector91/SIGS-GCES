@@ -80,10 +80,10 @@
     <tbody class="show_room">
       <%= will_paginate @rooms %>
       <% @rooms.each do |room| %>
-        <tr>
+        <tr id="<%=((room.active) ? 'active' : 'inactive')%>">
           <td><%= room.code %></td>
           <td><%= room.name %></td>
-          <td id="active_room"><%=  ((room.active) ? 'Sim' : 'Não')  %></td>
+          <td id="room-status"><%=  ((room.active) ? 'Sim' : 'Não')  %></td>
           <td><%= room.building.name %></td>
           <% if permission[:level] != 0 %>
             <td style="text-align:center"><%= link_to image_tag("icon_edit.png"), room_edit_path(room.id) %></td>
@@ -97,55 +97,14 @@
 
 <script>
   $("input:radio").on('click', function() {
-    $(".show_room").empty();
     var roomStatus = $(this).attr("value");
 
+    $('tr').show()
     if (roomStatus === "active") {
-      <% @rooms.each do |room| %>
-        if (<%= room.active %>) {
-          $(".show_room").append(
-            "<tr>"
-              + "<td><%=room.code%></td>"
-              + "<td><%= room.name %></td>"
-              + "<td id='active_room'><%=((room.active) ? 'Sim' : 'Não')  %></td>"
-              + "<td><%= room.building.name %></td>"
-              + '<td style="text-align:center"><%= link_to image_tag("icon_edit.png"), room_edit_path(room.id) %></td>'
-              + '<td style="text-align:center"><%= link_to image_tag("icon_view.png"), room_path(room.id) %></td>'
-            + "</tr>"
-          );
-        }
-      <%end%>
+      $('tr#inactive').hide()
     } else if (roomStatus === "inactive") {
-       <% @rooms.each do |room| %>
-         if (!<%= room.active %>) {
-            $(".show_room").append(
-              "<tr>"
-                + "<td><%=room.code%></td>"
-                + "<td><%= room.name %></td>"
-                + "<td id='active_room'><%=((room.active) ? 'Sim' : 'Não')  %></td>"
-                + "<td><%= room.building.name %></td>"
-                + '<td style="text-align:center"><%= link_to image_tag("icon_edit.png"), room_edit_path(room.id) %></td>'
-                + '<td style="text-align:center"><%= link_to image_tag("icon_view.png"), room_path(room.id) %></td>'
-              + "</tr>"
-            );
-          }
-      <%end%>
-    } else {
-      // roomStatus === all
-      <% @rooms.each do |room| %>
-        $(".show_room").append(
-          "<tr>"
-            + "<td><%=room.code%></td>"
-            + "<td><%= room.name %></td>"
-            + "<td id='active_room'><%=((room.active) ? 'Sim' : 'Não')  %></td>"
-            + "<td><%= room.building.name %></td>"
-            + '<td style="text-align:center"><%= link_to image_tag("icon_edit.png"), room_edit_path(room.id) %></td>'
-            + '<td style="text-align:center"><%= link_to image_tag("icon_view.png"), room_path(room.id) %></td>'
-          + "</tr>"
-        );
-      <%end%>
+      $('tr#active').hide()
     }
-
   });
 
   $('select#wing').on('change', function() {
