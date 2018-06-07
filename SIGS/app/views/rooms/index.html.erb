@@ -94,22 +94,3 @@
     </tbody>
     </table>
   <% end %>
-
-<script>
-  $("input:radio").on('click', function() {
-    var roomStatus = $(this).attr("value");
-
-    $('tr').show()
-    if (roomStatus === "active") {
-      $('tr#inactive').hide()
-    } else if (roomStatus === "inactive") {
-      $('tr#active').hide()
-    }
-  });
-
-  $('select#wing').on('change', function() {
-    var selected = $(this).val();
-    $('select#building_id').find('option').removeClass('hide');
-    $('select#building_id').find('option').not('option[data-wing="' + selected + '"]').addClass('hide');
-  });
-</script>
