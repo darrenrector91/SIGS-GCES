@@ -60,7 +60,7 @@
 
   function searchCourses() {
     if($('#input-search-courses').val()) {
-      $.  getJSON(
+      $.getJSON(
         '../search_courses/' + $('#input-search-courses').val() ,{
         format: 'json'
       }).success(function(data){
