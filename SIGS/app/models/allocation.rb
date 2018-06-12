@@ -6,6 +6,7 @@ class Allocation < ApplicationRecord
   belongs_to :school_room
   belongs_to :user
   has_many :all_allocation_date, dependent: :destroy
+  @final_value = 24
 
   validates :school_room_id,
             presence: { message: 'Informe a Turma' }
@@ -29,7 +30,7 @@ class Allocation < ApplicationRecord
     allocations_room = Allocation.where(day: day, room_id: room_id)
     start = start_time.strftime('%H').to_i
     final = final_time.strftime('%H').to_i
-    final = 24 if final.zero?
+    final = @final_value if final.zero?
 
     allocations_room.each do |allocation|
       return true if time_in_range(allocation, start, final)
@@ -41,7 +42,7 @@ class Allocation < ApplicationRecord
     allocations_room = Allocation.where(day: day, school_room_id: school_room_id)
     start = start_time.strftime('%H').to_i
     final = final_time.strftime('%H').to_i
-    final = 24 if final.zero?
+    final = @final_value if final.zero?
 
     allocations_room.each do |allocation|
       return true if time_in_range(allocation, start, final)
@@ -52,7 +53,7 @@ class Allocation < ApplicationRecord
   def time_in_range(allocation, start, final)
     allocation_start = allocation.start_time.strftime('%H').to_i
     allocation_final = allocation.final_time.strftime('%H').to_i
-    allocation_final = 24 if allocation_final.zero?
+    allocation_final = @final_value if allocation_final.zero?
     (start >= allocation_start && start < allocation_final) ||
       (final > allocation_start && final <= allocation_final)
   end
