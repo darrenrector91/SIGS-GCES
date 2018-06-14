@@ -79,9 +79,9 @@ Rails.application.routes.draw do
   post 'reports/generate_by_room' => 'reports#generate_by_room'
 
   # Reports School Rooms
-  get 'reports_school_rooms/school_room_all' => 'reports_school_rooms#report_school_room_all', as: 'all_school_rooms_report'
-  get 'reports_school_rooms/school_rooms_allocated' => 'reports_school_rooms#report_school_room_allocated', as: 'allocated_school_rooms_report'
-  get 'reports_school_rooms/school_room_not_allocated' => 'reports_school_rooms#report_school_room_not_allocated', as: 'unallocated_school_rooms_report'
+  get 'reports_school_rooms/school_room_all' => 'reports_school_rooms#all_school_rooms_report', as: 'all_school_rooms_report'
+  get 'reports_school_rooms/school_rooms_allocated' => 'reports_school_rooms#allocated_school_rooms_report', as: 'allocated_school_rooms_report'
+  get 'reports_school_rooms/school_room_not_allocated' => 'reports_school_rooms#unallocated_school_rooms_report', as: 'unallocated_school_rooms_report'
   get 'reports_school_rooms/school_room' => 'reports_school_rooms#school_reports', as: 'reports_school_room'
 
   #Reports by building

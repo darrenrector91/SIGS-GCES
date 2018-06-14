@@ -29,20 +29,20 @@ RSpec.describe ReportsSchoolRoomsController, type: :controller do
       sign_in(@user)
     end
 
-    it "should return all school rooms allocations" do
-      get :report_school_room_allocated
+    it "should return allocated school rooms" do
+      get :allocated_school_rooms_report
       allocations = assigns(:allocations)
       expect(allocations.count).to eq(Allocation.count)
     end
 
-    it "should return not school rom allocation" do
-      get :report_school_room_not_allocated
+    it "should return unallocated school rooms" do
+      get :unallocated_school_rooms_report
       unallocated_school_rooms = assigns(:unallocated_school_rooms)
       expect(unallocated_school_rooms).to include(@school_room_2)
     end
 
-    it "should return allocation school rom" do
-      get :report_school_room_all
+    it "should return all school rooms" do
+      get :all_school_rooms_report
       allocations = assigns(:allocations)
       expect(allocations).to include(@allocation)
     end
