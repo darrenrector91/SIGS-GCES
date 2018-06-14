@@ -9,8 +9,8 @@ prawn_document(page_layout: :portrait) do |pdf|
   
   data = [["Turma", "Disciplina", "Estatus alocação", "Sala"]]
  
-  data += @allocation.collect{|allocation| [allocation.school_room.name,allocation.school_room.discipline.name, "Alocado", allocation.room.name]}
-  data += @school_room.collect{|school_room| [school_room.name, school_room.discipline.name, "Não Alocada", "---"]}
+  data += @allocations.collect{|allocation| [allocation.school_room.name,allocation.school_room.discipline.name, "Alocado", allocation.room.name]}
+  data += @unallocated_school_rooms.collect{|school_room| [school_room.name, school_room.discipline.name, "Não Alocada", "---"]}
   pdf.table(data, :header => true, :column_widths => [130, 130, 130, 130])
   	 
 end

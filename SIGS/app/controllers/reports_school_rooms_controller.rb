@@ -5,14 +5,13 @@ class ReportsSchoolRoomsController < ApplicationController
   def school_reports; end
 
   def report_school_room_not_allocated
-    @allocation = Allocation.all
-    id_school_room = []
-    cont_id = 0
-    @allocation.each do |allocation|
-      id_school_room[cont_id] = allocation.school_room_id
-      cont_id += 1
+    @allocations = Allocation.all
+    allocated_school_room_ids = []
+
+    @allocations.each do |allocation|
+      allocated_school_room_ids << allocation.school_room_id
     end
-    @school_room = SchoolRoom.where('id NOT IN (?)', id_school_room)
+    @unallocated_school_rooms = SchoolRoom.where('id NOT IN (?)', allocated_school_room_ids)
     # if @school_room.nil?
     #   return @sem_school_room_not_allocation = 'Nao foram encontradas
     #                                     turmas sem alocacao'
@@ -25,7 +24,7 @@ class ReportsSchoolRoomsController < ApplicationController
   end
 
   def report_school_room_allocated
-    @allocation = Allocation.all
+    @allocations = Allocation.all
     # if @allocation.nil?
     #   return @sem_allocation = 'Nao foram encontradas turmas alocadas'
     # else
