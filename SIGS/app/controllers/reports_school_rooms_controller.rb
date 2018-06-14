@@ -11,7 +11,9 @@ class ReportsSchoolRoomsController < ApplicationController
     @allocations.each do |allocation|
       allocated_school_room_ids << allocation.school_room_id
     end
-    @unallocated_school_rooms = SchoolRoom.where('id NOT IN (?)', allocated_school_room_ids)
+    @unallocated_school_rooms = SchoolRoom.where(
+      'id NOT IN (?)', allocated_school_room_ids
+    )
     # if @school_room.nil?
     #   return @sem_school_room_not_allocation = 'Nao foram encontradas
     #                                     turmas sem alocacao'
