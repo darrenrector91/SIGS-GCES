@@ -5,7 +5,7 @@ Feature: Create school room
 
 	Scenario: create school room with valid attributes
 		Given I am logged in as coordinator
-		And click on link 'Alocar'
+		And click on link 'Gerenciar Turmas'
 		And click on link 'Criar Nova Turma'
 		And I select '1' in 'discipline_id'
 		And I search 10 in courses
@@ -14,7 +14,7 @@ Feature: Create school room
 
 	Scenario: create school room with valid attributes adding category
 		Given I am logged in as coordinator
-		And click on link 'Alocar'
+		And click on link 'Gerenciar Turmas'
 		And click on link 'Criar Nova Turma'
 		And I select '1' in 'discipline_id'
 		And I search 10 in courses
@@ -24,7 +24,7 @@ Feature: Create school room
 
 	Scenario: create school room with lower vacancies
 		Given I am logged in as coordinator
-		And click on link 'Alocar'
+		And click on link 'Gerenciar Turmas'
 		And click on link 'Criar Nova Turma'
 		And I select '1' in 'discipline_id'
 		And I search 10 in courses
@@ -36,7 +36,7 @@ Feature: Create school room
 
 	Scenario: create school room with high vacancies
 		Given I am logged in as coordinator
-		And click on link 'Alocar'
+		And click on link 'Gerenciar Turmas'
 		And click on link 'Criar Nova Turma'
 		And I select '1' in 'discipline_id'
 		And I search 10 in courses
