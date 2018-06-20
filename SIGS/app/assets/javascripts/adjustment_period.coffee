@@ -4,33 +4,9 @@
 
 `
 $(document).ready(function(){
-  if($('#adjustment-period-solicitation').length > 0) {
 
-    console.log("OLAAA");
-  }
+  buildScheduleTable();
 
-  table = "<tr>";
-  table += "<th></th>";
-  table += "<th>Segunda</th>";
-  table += "<th>Terça</th>";
-  table += "<th>Quarta</th>";
-  table += "<th>Quinta</th>";
-  table += "<th>Sexta</th>";
-  table += "<th>Sábado</th>";
-  table += "</tr>";
-  week = ["segunda", "terca","quarta","quinta","sexta", "sabado"]
-
-  period = '<%= @school_room.courses[0].shift %>';
-  start_time = 6
-  final_time = 23
-  for (var row = start_time; row < final_time; row++) {
-    table +="<tr>";
-    table += "<td>" + row + ":00</td>";
-    for (var col = 0; col < 6; col++) {
-      table += "<td><input type='checkbox' name='" + week[col] + "[" + row + "]' value='1' /></td>";
-    }
-    table += "</tr>";
-  }
   $(".hours_table").html(table);
 
   $("#departments-check input[type=checkbox]").change(function() {
@@ -49,9 +25,34 @@ $(document).ready(function(){
       }
     });
   });
-
-
 });
+
+
+function buildScheduleTable() {
+  table = "<tr>"
+          + "<th></th>"
+          + "<th>Segunda</th>"
+          + "<th>Terça</th>"
+          + "<th>Quarta</th>"
+          + "<th>Quinta</th>"
+          + "<th>Sexta</th>"
+          + "<th>Sábado</th>"
+        + "</tr>";
+
+  week = ["segunda", "terca","quarta","quinta","sexta", "sabado"]
+
+  period = '<%= @school_room.courses[0].shift %>';
+  start_time = 6
+  final_time = 23
+  for (var row = start_time; row < final_time; row++) {
+    table +="<tr>";
+    table += "<td>" + row + ":00</td>";
+    for (var col = 0; col < 6; col++) {
+      table += "<td><input type='checkbox' name='" + week[col] + "[" + row + "]' value='1' /></td>";
+    }
+    table += "</tr>";
+  }
+}
 
 function ajaxReloadRooms(department_id) {
 
