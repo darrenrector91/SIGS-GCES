@@ -6,7 +6,7 @@ Feature: Solicitation an allocation to other department
   Scenario: request allocation in allocation period without schedule
     Given I am logged in as coordinator 
     Given I am in the allocation period
-    And click on link 'Alocar'
+    And click on link 'Gerenciar Turmas'
     When click in solicitation link
     Then expected 'Período de Alocação'
     And I fill justification
@@ -16,7 +16,7 @@ Feature: Solicitation an allocation to other department
   Scenario: request allocation in adjustment period
     Given I am logged in as coordinator
     And change date of allocation period
-    And click on link 'Alocar'
+    And click on link 'Gerenciar Turmas'
     When click in solicitation link
     Then expected 'Período de Ajuste'
     And I fill justification
@@ -24,13 +24,13 @@ Feature: Solicitation an allocation to other department
   Scenario: request allocation and see time options of all shifts
     Given I am logged in as coordinator
     And change date of allocation period
-    And click on link 'Alocar'
+    And click on link 'Gerenciar Turmas'
     When click in solicitation link
     Then expected all periods available for allocation
   
   Scenario: requesting an allocation should not display the current user department as an option
     Given I am logged in as coordinator
     And change date of allocation period
-    And click on link 'Alocar'
+    And click on link 'Gerenciar Turmas'
     When click in solicitation link
     Then I should not see my department as an option

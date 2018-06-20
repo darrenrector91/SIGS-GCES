@@ -9,6 +9,10 @@ And (/^click on link 'Criar Nova Turma'$/) do
 	click_link ('Criar Nova Turma')
 end
 
+And (/^click on link 'Gerenciar Turmas'$/) do
+	first(:link, 'Gerenciar Turmas').click
+end
+
 And (/^I select '1' in 'discipline_id'$/) do
 	find_field('school_room_discipline_id').find("option[value='1']").text
 end
