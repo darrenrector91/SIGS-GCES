@@ -3,8 +3,10 @@ Feature: Manager User
   As a system user
   I would like to manager a user account
 
-  Scenario: Change name and password both valid of a user
+  Background:
     Given I am logged in as assistant administrative
+
+  Scenario: Change name and password both valid of a user
     When click on link 'Minha Conta'
     And I fill in 'password-user' with '654321'
     And I fill in 'confirm_password' with '654321'
