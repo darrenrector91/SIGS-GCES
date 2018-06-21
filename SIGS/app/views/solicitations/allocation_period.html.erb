@@ -20,33 +20,7 @@
 
 <% end -%>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    table = "<tr>";
-    table += "<th></th>";
-    table += "<th>Segunda</th>";
-    table += "<th>Terça</th>";
-    table += "<th>Quarta</th>";
-    table += "<th>Quinta</th>";
-    table += "<th>Sexta</th>";
-    table += "<th>Sábado</th>";
-    table += "</tr>";
-    week = ["segunda", "terca","quarta","quinta","sexta", "sabado"]
 
-    period = <%= @school_room.courses[0].shift %>;
-    start_time = 6
-    final_time = 23
-    for (var row = start_time; row < final_time; row++) {
-      table +="<tr>";
-      table += "<td>" + row + ":00</td>";
-      for (var col = 0; col < 6; col++) {
-        table += "<td><input type='checkbox' name='" + week[col] + "[" + row + "]' value='1' /></td>";
-      }
-      table += "</tr>";
-    }
-    $(".hours_table").html(table);
-  });
-</script>
 <style type="text/css">
   td, th{text-align: center;}
 </style>
