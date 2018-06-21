@@ -116,7 +116,6 @@ class AllocationsController < ApplicationController
     end
   end
 
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   # rubocop:disable Metrics/LineLength
   def allocations_params(my_params)
     my_params.permit(:room_id,
@@ -152,6 +151,10 @@ class AllocationsController < ApplicationController
         exist = true
       end
     end
+    data_allocation(cell, hour, room)
+  end
+
+  def data_allocation(cell, hour, room)
     data_allocation = []
     data_allocation.push cell
     data_allocation.push params[:school_room]
