@@ -96,9 +96,18 @@ $(document).ready(function(){
 
     week = ["segunda", "terca","quarta","quinta","sexta", "sabado"]
 
+
+    table = fillTableCheckboxes(table);
+
+    $(".hours_table").html(table);
+  }
+
+  function fillTableCheckboxes(table ) {
+
     period = '<%= @school_room.courses[0].shift %>';
     start_time = 6
     final_time = 23
+
     for (var row = start_time; row < final_time; row++) {
       table +="<tr>";
       table += "<td>" + row + ":00</td>";
@@ -107,7 +116,8 @@ $(document).ready(function(){
       }
       table += "</tr>";
     }
-    $(".hours_table").html(table);
+
+    return table;
   }
 })
 `
