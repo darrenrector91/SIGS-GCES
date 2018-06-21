@@ -5,28 +5,30 @@
 `
 $(document).ready(function(){
 
-  buildScheduleTable();
+  if($('#adjustment-period-solicitation').length > 0){
+    buildScheduleTable();
 
-  $(".hours_table").html(table);
+    $(".hours_table").html(table);
 
-  $("#departments-check input[type=checkbox]").change(function() {
-    if ($(this).is(":checked")){
-      ajaxReloadRooms($(this).val());
-    } else {
-      $("#rooms-list #department_rooms_" + $(this).val()).remove();
-    }
-  });
-
-  $('table input[type=checkbox]').change(function () {
-    $("#departments-check input[type=checkbox]").each(function(){
+    $("#departments-check input[type=checkbox]").change(function() {
       if ($(this).is(":checked")){
-        $("#rooms-list #department_rooms_" + $(this).val()).remove();
         ajaxReloadRooms($(this).val());
+      } else {
+        $("#rooms-list #department_rooms_" + $(this).val()).remove();
       }
     });
-  });
-});
 
+    $('table input[type=checkbox]').change(function () {
+      $("#departments-check input[type=checkbox]").each(function(){
+        if ($(this).is(":checked")){
+          $("#rooms-list #department_rooms_" + $(this).val()).remove();
+          ajaxReloadRooms($(this).val());
+        }
+      });
+    });
+  }
+
+});
 
 function buildScheduleTable() {
   table = "<tr>"

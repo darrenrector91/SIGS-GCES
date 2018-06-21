@@ -4,6 +4,11 @@
 
 `
 $(document).ready(function(){
+
+  if($('#allocation-period-solicitation').length > 0){
+    buildScheduleTable();
+  }
+
   if($('#new-allocation').length > 0) {
     ajaxReloadTable();
   }
@@ -76,6 +81,33 @@ $(document).ready(function(){
     }
 
     $("#hours_table").html(string);
+  }
+
+  function buildScheduleTable() {
+    table = "<tr>"
+            + "<th></th>"
+            + "<th>Segunda</th>"
+            + "<th>Terça</th>"
+            + "<th>Quarta</th>"
+            + "<th>Quinta</th>"
+            + "<th>Sexta</th>"
+            + "<th>Sábado</th>"
+          + "</tr>";
+
+    week = ["segunda", "terca","quarta","quinta","sexta", "sabado"]
+
+    period = '<%= @school_room.courses[0].shift %>';
+    start_time = 6
+    final_time = 23
+    for (var row = start_time; row < final_time; row++) {
+      table +="<tr>";
+      table += "<td>" + row + ":00</td>";
+      for (var col = 0; col < 6; col++) {
+        table += "<td><input type='checkbox' name='" + week[col] + "[" + row + "]' value='1' /></td>";
+      }
+      table += "</tr>";
+    }
+    $(".hours_table").html(table);
   }
 })
 `
