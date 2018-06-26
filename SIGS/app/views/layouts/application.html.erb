@@ -55,10 +55,32 @@
                 <li><%= link_to 'Turmas', school_rooms_index_path %></li>
               <% end %>
               <% if permission[:level] != 0 %>
-                <li><%= link_to "Solicitações", solicitations_index_path %></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Solicitações
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to solicitations_index_path do %>
+                        <span class="fa fa-tasks"></span>
+                        Solicitações Pendentes
+                      <% end %>
+                      </li>
+                    <li>
+                      <%= link_to my_solicitations_path do %>
+                        <span class="fa fa-user-check"></span>
+                        Minhas Solicitações 
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
                 <% if permission[:level] == 2 %>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salas <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Salas
+                    <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to 'Salas', room_index_path %></li>
                     <li><%= link_to "Categorias", categories_index_path %></li>
