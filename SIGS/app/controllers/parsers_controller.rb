@@ -2,10 +2,11 @@
 
 # class to upload parser informations to the system
 class ParsersController < ApplicationController
+  @csv_path = 'public/csv/'
   def upload_rooms
     if document
       open_file('file_rooms.csv')
-      Parser.save_data_rooms('public/csv/file_rooms.csv')
+      Parser.save_data_rooms(csv_path + 'file_rooms.csv')
       home
     else
       parsers
@@ -15,7 +16,7 @@ class ParsersController < ApplicationController
   def upload_buildings
     if document
       open_file('file_buildings.csv')
-      Parser.save_data_buildings('public/csv/file_buildings.csv')
+      Parser.save_data_buildings(csv_path + 'file_buildings.csv')
       home
     else
       parsers
@@ -25,7 +26,7 @@ class ParsersController < ApplicationController
   def upload_departments
     if document
       open_file('file_departments.csv')
-      Parser.save_data_departments('public/csv/file_departments.csv')
+      Parser.save_data_departments(csv_path + 'file_departments.csv')
       home
     else
       parsers
@@ -35,7 +36,7 @@ class ParsersController < ApplicationController
   def upload_courses
     if document
       open_file('file_courses.csv')
-      Parser.save_data_courses('public/csv/file_courses.csv')
+      Parser.save_data_courses(csv_path + 'file_courses.csv')
       home
     else
       parsers
@@ -45,7 +46,7 @@ class ParsersController < ApplicationController
   def upload_disciplines
     if document
       open_file('file_disciplines.csv')
-      Parser.save_data_disciplines('public/csv/file_disciplines.csv')
+      Parser.save_data_disciplines(csv_path + 'file_disciplines.csv')
       home
     else
       parsers
