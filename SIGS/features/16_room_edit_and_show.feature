@@ -7,32 +7,30 @@ Feature: Room Edit and show
     Given I am logged in as assistant administrative
 
   Scenario: Change code, name and capacity both valid of room
-    
     When click on link 'Salas'
     And I press 'Icon edit' button
-    And I fill in 'code' with '676767'
-    And I fill in 'name' with 'S9'
-    And I fill in 'capacity' with '60'
+    And I fill in room 'code' with '676767'
+    And I fill in room 'name' with 'S9'
+    And I fill in room 'capacity' with '60'
     When I press 'Salvar' button
     Then the 'Salas' page should load with notice message 'Dados da sala atualizados com sucesso'
 
   Scenario: Change code, name and capacity both empty of room
     When click on link 'Salas'
     And I press 'Icon edit' button
-    And I fill in 'code' with ''
-    And I fill in 'name' with ''
-    And I fill in 'capacity' with ''
+    And I fill in room 'code' with ''
+    And I fill in room 'name' with ''
+    And I fill in room 'capacity' with ''
     When I press 'Salvar' button
     And the 'Alterar Sala' page should load with the errors messages
     Then the 'Alterar Sala' page should load with notice message 'Dados não foram atualizados'
 
-
   Scenario: Change code, name both invalids and capacity less than 5 of room
     When click on link 'Salas'
     And I press 'Icon edit' button
-    And I fill in 'code' with '987655'
-    And I fill in 'name' with 'a'
-    And I fill in 'capacity' with '2'
+    And I fill in room 'code' with '987655'
+    And I fill in room 'name' with 'a'
+    And I fill in room 'capacity' with '2'
     When I press 'Salvar' button
     And the 'Alterar Sala' page should load with errors messages of empty fields
     Then the 'Alterar Sala' page should load with notice message 'Dados não foram atualizados'
@@ -40,9 +38,9 @@ Feature: Room Edit and show
   Scenario: Change code, name both invalids and capacity greater than 500 of room
     When click on link 'Salas'
     And I press 'Icon edit' button
-    And I fill in 'code' with '987655'
-    And I fill in 'name' with 'S9'
-    And I fill in 'capacity' with '900'
+    And I fill in room 'code' with '987655'
+    And I fill in room 'name' with 'S9'
+    And I fill in room 'capacity' with '900'
     When I press 'Salvar' button
     And the 'Alterar Sala' page should load with a error message of capacity field
     Then the 'Alterar Sala' page should load with notice message 'Dados não foram atualizados'
