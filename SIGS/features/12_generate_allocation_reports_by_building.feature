@@ -6,14 +6,14 @@ Feature: Generate allocation reports by building
   Background:
     Given I am logged in as coordinator
     And click on link 'Relatórios'
-    And click on link 'Prédios' in 'Relatório'
+    And click on link 'Prédios'
 
   Scenario: Generate report single building
     And click on link 'Icon pdf' in 'Pavilhão Anísio Teixeira'
     Then generate a PDF
 
   Scenario: Generate report single building with find
-    And click on link 'Prédios' in 'Relatório'
+    And click on link 'Prédios'
     Then the 'Relatório por Prédios' page show some buildings
     And fill 'search' with 'Anísio'
     And click on button 'searchButton'
@@ -22,7 +22,7 @@ Feature: Generate allocation reports by building
     Then generate a PDF
 
   Scenario: Generate report single building with empty find
-    And click on link 'Prédios' in 'Relatório'
+    And click on link 'Prédios'
     Then the 'Relatório por Prédios' page show some buildings
     And fill 'search' with ''
     And click on button 'searchButton'
@@ -31,7 +31,7 @@ Feature: Generate allocation reports by building
     Then generate a PDF
 
   Scenario: Generate report single building with nonexistents
-    And click on link 'Prédios' in 'Relatório'
+    And click on link 'Prédios'
     Then the 'Relatório por Prédios' page show some buildings
     And fill 'search' with 'teste'
     And click on button 'searchButton'
