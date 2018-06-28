@@ -25,44 +25,8 @@ And (/^click on link 'Icon trash'$/) do
   click_link('Icon trash', match: :first)
 end
 
-And (/^I fill in 'name' with 'Otavio Socrates'$/) do
-  fill_in('api_user[name]', with: 'Otavio Socrates')
-end
-
-And (/^I fill in 'name' with 'Paula'$/) do
-  fill_in('api_user[name]', with: 'Paula')
-end
-
-And (/^I fill in 'name' with 'Ana Paula Chaves'$/) do
-  fill_in('api_user[name]', with: 'Ana Paula Chaves')
-end
-
-And (/^I fill in 'name' with 'Hendrick Mathews'$/) do
-  fill_in('api_user[name]', with: 'Hendrick Mathews')
-end
-
-And (/^I fill in 'name' with 'Thay'$/) do
-  fill_in('api_user[name]', with: 'Thay')
-end
-
-And (/^I fill in 'email' with 'otavio.socrates@hotmail.com'$/) do
-  fill_in('api_user[email]', with: 'otavio.socrates@hotmail.com')
-end
-
-And (/^I fill in 'email' with 'aninha'$/) do
-  fill_in('api_user[email]', with: 'aninha')
-end
-
-And (/^I fill in 'email' with 'anapaula.chaves@gmail.com'$/) do
-  fill_in('api_user[email]', with: 'anapaula.chaves@gmail.com')
-end
-
-And (/^I fill in 'email' with 'hendrick.mathews@gmail.com'$/) do
-  fill_in('api_user[email]', with: 'hendrick.mathews@gmail.com')
-end
-
-And (/^I fill in 'email' with 'thay'$/) do
-  fill_in('api_user[email]', with: 'thay')
+And (/^I fill in '([^"]*)' with '([^"]*)'$/) do |field, value|
+  fill_in("api_user[#{field}]", with: value)
 end
 
 Then (/^the page 'Usuário de API' must show two API users$/) do
