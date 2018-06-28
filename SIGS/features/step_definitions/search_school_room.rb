@@ -2,20 +2,8 @@ And (/^click on link 'Alocar'$/) do
 	first(:link,'Alocar').click
 end
 
-And (/^I fill in 'search' with 'Cal'$/) do
-  find(:css, "input[id$='input-search-field']").set("Cal")
-end
-
-And (/^I fill in 'search' with 'Art'$/) do
-  find(:css, "input[id$='input-search-field']").set("Art")
-end
-
-When (/^I press searchButton button$/) do
-	page.find('#searchButton').click
-end
-
-Then (/^notice message 'Nenhuma turma encontrada'$/) do
-  expect(page).to have_content('Nenhuma turma encontrada')
+And (/^I fill in search with '([^"]*)'$/) do |value|
+  find(:css, "input[id$='input-search-field']").set(value)
 end
 
 And (/^print the result search$/) do

@@ -8,19 +8,19 @@ Feature: Index School Rooms
 		And click on link 'Gerenciar Turmas'
 
   Scenario: search existing school room
-		And I fill in 'search' with 'Cal'
-		When I press searchButton button
+		And I fill in search with 'Cal'
+		And click on button 'searchButton'
     And print the result search
 
   Scenario: search not existing school room
-		And I fill in 'search' with 'Art'
-		When I press searchButton button
+		And I fill in search with 'Art'
+		And click on button 'searchButton'
     Then notice message 'Nenhuma turma encontrada'
 
   Scenario: search existing school room in result page
-    And I fill in 'search' with 'Cal'
-    When I press searchButton button
+    And I fill in search with 'Cal'
+    And click on button 'searchButton'
     And print the result search
-    And I fill in 'search' with 'Cal'
-    When I press searchButton button
+    And I fill in search with 'Cal'
+    And click on button 'searchButton'
     And print the result search
