@@ -10,11 +10,11 @@ Feature: Approve registration
 
 	Scenario: approve a registration
 		When I press 'Approve' button
-		Then the request should be deleted and notice message 'Usuário aprovado com sucesso'
+		Then notice message 'Usuário aprovado com sucesso'
 
 	Scenario: recuse a registration
 		When I press 'Recuse' button
-		Then the request should be deleted and notice message 'Usuário recusado com sucesso'
+		Then notice message 'Usuário recusado com sucesso'
 
 	Scenario: there is no registration
 		When I press 'Recuse' button

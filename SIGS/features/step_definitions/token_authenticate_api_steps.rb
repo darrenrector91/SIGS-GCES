@@ -25,7 +25,7 @@ And (/^click on link 'Icon trash'$/) do
   click_link('Icon trash', match: :first)
 end
 
-And (/^I fill in '([^"]*)' with '([^"]*)'$/) do |field, value|
+And (/^I fill in api '([^"]*)' with '([^"]*)'$/) do |field, value|
   fill_in("api_user[#{field}]", with: value)
 end
 
