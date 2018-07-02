@@ -5,7 +5,7 @@
 `
 $(document).ready(function(){
 
-  if($('#adjustment-period-solicitation').length > 0){
+  if($('#adjustment-period-solicitation').length > 0 || $('#allocation-period-solicitation').length > 0){
     buildScheduleTable();
 
     $(".hours_table").html(table);
