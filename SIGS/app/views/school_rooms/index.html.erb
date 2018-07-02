@@ -23,7 +23,7 @@
 <% if @my_school_rooms.count == 0 %>
   <h3>Não há turmas cadastradas no momento.</h3>
 <% else %>
-<%= will_paginate @my_school_rooms %>
+<%= will_paginate @my_school_rooms, renderer: BootstrapPagination::Rails %>
 
   <table class="table table-hover">
     <tr>
@@ -88,5 +88,7 @@
       </tr>
     <% end %>
   </table>
+
+<%= will_paginate @my_school_rooms, renderer: BootstrapPagination::Rails %>
 
 <% end %>
