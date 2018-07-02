@@ -50,9 +50,7 @@ class SolicitationsController < ApplicationController
   end
 
   def index
-    department = current_user_department
-    @department_rooms = Room.where(department: department)
-    room_solicitations = RoomSolicitation.where(department: department)
+    room_solicitations = RoomSolicitation.where(department: current_user_department)
 
     @solicitations = []
     room_solicitations.each do |room_solicitation|
@@ -67,6 +65,10 @@ class SolicitationsController < ApplicationController
     # Solicitation.all apenas para fins de uso local, devido a regra de negocio
     # onde apenas o dono do departamento pode acessar as solicitacoes
     # @solicitations = Solicitation.all
+  end
+
+  def my_solicitations
+    @solicitations = Solicitation.where(requester_id: current_user.id, status: 0)
   end
 
   def show

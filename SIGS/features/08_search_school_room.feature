@@ -3,23 +3,21 @@ Feature: Index School Rooms
   As a coordinator user
   I would like to search school rooms
 
-  Scenario: search existing school room
+  Background:
 		Given I am logged in as coordinator
 		And click on link 'Gerenciar Turmas'
+
+  Scenario: search existing school room
 		And I fill in 'search' with 'Cal'
 		When I press searchButton button
     And print the result search
 
   Scenario: search not existing school room
-		Given I am logged in as coordinator
-		And click on link 'Gerenciar Turmas'
 		And I fill in 'search' with 'Art'
 		When I press searchButton button
     Then notice message 'Nenhuma turma encontrada'
 
   Scenario: search existing school room in result page
-    Given I am logged in as coordinator
-    And click on link 'Gerenciar Turmas'
     And I fill in 'search' with 'Cal'
     When I press searchButton button
     And print the result search

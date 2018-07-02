@@ -3,7 +3,7 @@ And (/^click on link 'Relatórios'$/) do
 end
 
 And (/^click on link 'Salas' in 'Relatório'$/) do
-  first('.dropdown-menu').click_link('Salas')
+  find('#reports').click_link('Salas')
 end
 
 And (/^select in 'Departamento' option 'Engenharia'$/) do

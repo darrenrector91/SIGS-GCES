@@ -3,19 +3,19 @@ Feature: Token authenticate API
 	As a system user
 	I would like to Generate token of a API user
 
-  Scenario: show a list of API users created
+  Background:
     Given I am logged in as assistant administrative
+
+  Scenario: show a list of API users created
     And click on link 'API'
     Then the page 'Usuário de API' must show two API users
 
   Scenario: show no one API users in the table
-    Given I am logged in as assistant administrative
     And delete all API users
     And click on link 'API'
     Then the page 'Usuário de API' must show no one API users
 
   Scenario: create a API user valid
-		Given I am logged in as assistant administrative
     And click on link 'API'
     And click on link 'Criar Usuário de API'
     And I fill in 'name' with 'Otavio Socrates'
@@ -25,7 +25,6 @@ Feature: Token authenticate API
     And the page 'Usuário de API' must show the details of API user Otavio Socrates
 
   Scenario: create a API user with invalid name and email
-		Given I am logged in as assistant administrative
     And click on link 'API'
     And click on link 'Criar Usuário de API'
     And I fill in 'name' with 'Paula'
@@ -35,7 +34,6 @@ Feature: Token authenticate API
     And the page 'Criar Usuário de API' must show the errors
 
   Scenario: create a API user with valid name and a repeated email
-		Given I am logged in as assistant administrative
     And click on link 'API'
     And click on link 'Criar Usuário de API'
     And I fill in 'name' with 'Ana Paula Chaves'
@@ -45,7 +43,6 @@ Feature: Token authenticate API
     And the page 'Criar Usuário de API' must show the error of repeated email
 
   Scenario: edit a API user existent
-		Given I am logged in as assistant administrative
     And click on link 'API'
     And click on link 'Icon edit'
     And I fill in 'name' with 'Hendrick Mathews'
@@ -55,7 +52,6 @@ Feature: Token authenticate API
     And the page 'Usuário de API' must show the details of API user Hendrick Mathews
 
   Scenario: edit a API user existent with invalid attributes
-		Given I am logged in as assistant administrative
     And click on link 'API'
     And click on link 'Icon edit'
     And I fill in 'name' with 'Thay'
@@ -65,6 +61,5 @@ Feature: Token authenticate API
     And the page 'Criar Usuário de API' must show the errors
 
   Scenario: delete a API user existent
-    Given I am logged in as assistant administrative
     And click on link 'API'
     And click on link 'Icon trash'

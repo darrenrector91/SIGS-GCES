@@ -19,6 +19,18 @@ class Allocation < ApplicationRecord
 
   validate :validate_hours
 
+  def verify_time(room)
+    allocations_room = room
+    start = start_time.strftime('%H').to_i
+    final = final_time.strftime('%H').to_i
+    final = @final_value if final.zero?
+
+    allocations_room.each do |allocation|
+      return true if time_in_range(allocation, start, final)
+    end
+    false
+  end
+
   def validate_hours
     school_allocated = 'Turma já alocada neste horário'
     error_mensager = 'Alocação com horário não vago ou capacidade da sala cheia'
@@ -27,27 +39,11 @@ class Allocation < ApplicationRecord
   end
 
   def verify_time_shock_room_day
-    allocations_room = Allocation.where(day: day, room_id: room_id)
-    start = start_time.strftime('%H').to_i
-    final = final_time.strftime('%H').to_i
-    final = @final_value if final.zero?
-
-    allocations_room.each do |allocation|
-      return true if time_in_range(allocation, start, final)
-    end
-    false
+    verify_time(Allocation.where(day: day, room_id: room_id))
   end
 
   def verify_same_school_room_schock
-    allocations_room = Allocation.where(day: day, school_room_id: school_room_id)
-    start = start_time.strftime('%H').to_i
-    final = final_time.strftime('%H').to_i
-    final = @final_value if final.zero?
-
-    allocations_room.each do |allocation|
-      return true if time_in_range(allocation, start, final)
-    end
-    false
+    verify_time(Allocation.where(day: day, school_room_id: school_room_id))
   end
 
   def time_in_range(allocation, start, final)

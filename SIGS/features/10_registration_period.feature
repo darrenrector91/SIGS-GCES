@@ -3,14 +3,14 @@ Feature: Registration Period
 	As a system user
 	I would like to registrate a period
 
-	Scenario: Show periods of halfyear
+	Background:
 		Given I am logged in as assistant administrative
 		When click on link 'Período'
+
+	Scenario: Show periods of halfyear
 		Then the 'Período' page should load with periods information
 
 	Scenario: Edit period 'Alocação' with valid
-		Given I am logged in as assistant administrative
-		When click on link 'Período'
 		And I press 'Icon edit' button
 		And I fill in 'initial_date' with '2018-01-15'
 		And I fill in 'final_date' with '2018-02-10'
@@ -18,8 +18,6 @@ Feature: Registration Period
 		Then the 'Período' page should load with 'Dados do período atualizados com sucesso'
 
 	Scenario: Edit period 'Alocação' with invalid
-		Given I am logged in as assistant administrative
-		When click on link 'Período'
 		And I press 'Icon edit' button
 		And I fill in 'initial_date' with '2018-10-15'
 		And I fill in 'final_date' with '2018-03-10'

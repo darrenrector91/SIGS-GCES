@@ -2,8 +2,8 @@ And (/^click on link 'Icon pdf' in 'Pavilhão Anísio Teixeira'$/) do
   find("a[href='/reports/generate_by_building/2']").click
 end
 
-And (/^click on link 'Prédios' in 'Relatório'$/) do
-    first('.dropdown-menu').click_link('Prédios')
+And (/^click on link 'Prédios'$/) do
+    click_link('Prédios')
 end
 
 And (/^fill 'search' with 'Anísio'$/) do
