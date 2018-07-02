@@ -1,25 +1,5 @@
-And (/^I fill in 'name' with 'S10'$/) do
-  fill_in(:name, with: 'S10')
-end
-
-And (/^I fill in 'name' with 'S100'$/) do
-  fill_in(:name, with: 'S100')
-end
-
-And (/^I fill in 'code' with '987653'$/) do
-  fill_in(:code, with: '987653')
-end
-
-And (/^I fill in 'code' with '124325'$/) do
-  fill_in(:code, with: '124325')
-end
-
-And (/^I fill in 'code' with '999999'$/) do
-  fill_in(:code, with: '999999')
-end
-
-And (/^I fill in 'capacity' with '50'$/) do
-  fill_in(:capacity, with: '50')
+And (/^I fill in '([^"]*)' with '([^"]*)'$/) do |field, name|
+  fill_in(field.to_sym, with: name)
 end
 
 And (/^I select 'Pavilhão João Calmon'/) do
