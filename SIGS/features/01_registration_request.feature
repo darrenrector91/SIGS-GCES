@@ -16,7 +16,7 @@ Feature: Registration Request
 		And I fill in user 'email' with 'gesiel@unb.br'
 		And I fill in user type with 'adm_as'
 		When I press 'Enviar' button
-		Then the initial page should load with notice message 'Solicitação de cadastro efetuado com sucesso!'
+		Then notice message 'Solicitação de cadastro efetuado com sucesso!'
 
   Scenario: Request registration of a user with invalid name
     And I fill in user 'name' with 'Ana'
@@ -27,7 +27,7 @@ Feature: Registration Request
     And I fill in user 'email' with 'gesiel@unb.br'
     And I fill in user type with 'coord'
     When I press 'Enviar' button
-    Then the initial page should load with notice message 'O Nome deve ter no mínimo 7 caracteres'
+    Then notice message 'O Nome deve ter no mínimo 7 caracteres'
 
   Scenario: Request registration of a user with invalid cpf
     And I fill in user 'name' with 'gesiel freitas'
@@ -38,7 +38,7 @@ Feature: Registration Request
     And I fill in user 'email' with 'gesiel@unb.br'
     And I fill in user type with 'deg_user'
     When I press 'Enviar' button
-    Then the initial page should load with notice message 'Insira um Cpf válido'
+    Then notice message 'Insira um CPF válido'
 
   Scenario: Request registration of a user with invalid cpf
     And I fill in user 'name' with 'gesiel freitas'
@@ -49,4 +49,4 @@ Feature: Registration Request
     And I fill in user 'email' with ''
     And I fill in user type with 'adm_as'
     When I press 'Enviar' button
-    Then the initial page should load with notice message 'E-mail não pode ser vazio'
+    Then notice message 'E-mail não pode ser vazio'
