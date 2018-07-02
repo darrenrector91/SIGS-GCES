@@ -1,17 +1,13 @@
-And (/^I fill in '([^"]*)' with '([^"]*)'$/) do |field, name|
+And (/^I fill in the filter '([^"]*)' with '([^"]*)'$/) do |field, name|
   fill_in(field.to_sym, with: name)
 end
 
-And (/^I select 'Pavilhão João Calmon'/) do
-	select 'Pavilhão João Calmon', from: 'building_id'
+And (/^I select the building '([^"]*)'/) do |building|
+	select building, from: 'building_id'
 end
 
-And (/^I select 'Pavilhão Anísio Teixeira'/) do
-	select 'Pavilhão Anísio Teixeira', from: 'building_id'
-end
-
-And (/^I select 'Norte'/) do
-	select 'NORTE', from: 'wing'
+And (/^I select the wing '([^"]*)'/) do |wing|
+	select wing, from: 'wing'
 end
 
 Then (/^the 'Salas' page should load with message 'S10'$/) do
