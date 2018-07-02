@@ -4,6 +4,7 @@
 
 `
 $(document).ready(function(){
+
   if($('#new-allocation').length > 0) {
     ajaxReloadTable();
   }
