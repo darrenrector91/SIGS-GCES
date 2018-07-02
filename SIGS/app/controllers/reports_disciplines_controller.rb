@@ -21,12 +21,16 @@ class ReportsDisciplinesController < ApplicationController
     discipline = Discipline.find(params[:id])
 
     report = Prawn::Document.new(page_size: 'A4', page_layout: :portrait) do |pdf|
-      pdf.image 'app/assets/images/logo_pdf.jpg', width: 520, height: 44
+      image_path = 'app/assets/images/logo_pdf.jpg'
+      pdf_title = 'Relatório de Alocação por Disciplina'
+      pdf_department = "Departamento de #{discipline.department.name}"
+
+      pdf.image image_path, width: 520, height: 44
       pdf.move_down 20
-      pdf.text 'Relatório de Alocação por Disciplina', size: 18, align: :center
+      pdf.text pdf_title, size: 18, align: :center
       pdf.move_down 10
       pdf.text discipline.name.to_s, size: 14, style: :bold, align: :center
-      pdf.text "Departamento de #{discipline.department.name}", align: :center
+      pdf.text pdf_department, align: :center
       pdf.move_down 20
       generate_discipline_page_report(pdf, discipline)
     end

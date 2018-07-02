@@ -82,7 +82,7 @@
       </tr>
     </thead>
     <tbody class="show_room">
-      <%= will_paginate @rooms %>
+      <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
       <% @rooms.each do |room| %>
         <tr id="<%=((room.active) ? 'active' : 'inactive')%>">
           <td><%= room.code %></td>
@@ -108,3 +108,4 @@
     </tbody>
     </table>
   <% end %>
+  <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>

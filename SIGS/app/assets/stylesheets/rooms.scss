@@ -16,3 +16,8 @@
   -ms-transition: background-color 600ms linear;
   transition: background-color 600ms linear;
 }
+
+ul.pagination.pagination {
+  float: right;
+  padding-right: 10px;
+}
