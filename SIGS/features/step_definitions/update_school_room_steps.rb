@@ -7,12 +7,8 @@ When (/^I press 'Alterar' button$/) do
     click_button('Alterar')
 end
 
-Then (/^notice message 'A turma foi alterada com sucesso'$/) do
-	expect(page).to have_content('A turma foi alterada com sucesso')
-end
-
-Then (/^notice message 'Turma deve haver pelo menos um curso'$/) do
-	expect(page).to have_content('Turma deve haver pelo menos um curso')
+Then (/^notice message '([^"]*)'$/) do |message|
+	expect(page).to have_content(message)
 end
 
 And (/^I uncheck 'Engenharia Eletronica'$/) do

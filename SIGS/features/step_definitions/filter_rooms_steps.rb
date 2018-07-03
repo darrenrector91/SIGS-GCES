@@ -1,37 +1,13 @@
-And (/^I fill in 'name' with 'S10'$/) do
-  fill_in(:name, with: 'S10')
+And (/^I fill in the filter '([^"]*)' with '([^"]*)'$/) do |field, name|
+  fill_in(field.to_sym, with: name)
 end
 
-And (/^I fill in 'name' with 'S100'$/) do
-  fill_in(:name, with: 'S100')
+And (/^I select the building '([^"]*)'/) do |building|
+	select building, from: 'building_id'
 end
 
-And (/^I fill in 'code' with '987653'$/) do
-  fill_in(:code, with: '987653')
-end
-
-And (/^I fill in 'code' with '124325'$/) do
-  fill_in(:code, with: '124325')
-end
-
-And (/^I fill in 'code' with '999999'$/) do
-  fill_in(:code, with: '999999')
-end
-
-And (/^I fill in 'capacity' with '50'$/) do
-  fill_in(:capacity, with: '50')
-end
-
-And (/^I select 'Pavilhão João Calmon'/) do
-	select 'Pavilhão João Calmon', from: 'building_id'
-end
-
-And (/^I select 'Pavilhão Anísio Teixeira'/) do
-	select 'Pavilhão Anísio Teixeira', from: 'building_id'
-end
-
-And (/^I select 'Norte'/) do
-	select 'NORTE', from: 'wing'
+And (/^I select the wing '([^"]*)'/) do |wing|
+	select wing, from: 'wing'
 end
 
 Then (/^the 'Salas' page should load with message 'S10'$/) do

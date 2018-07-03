@@ -23,17 +23,5 @@ And (/^I press 'Trash' button$/) do
 end
 
 When (/^I press 'Confirm' button$/) do
-  	first('.btn', visible: false).click
-end
-
-Then (/^notice message 'Categoria criada'$/) do
-	expect(page).to have_selector '.alert', text: 'Categoria criada'
-end
-
-Then (/^notice message 'Categoria atualizada com sucesso'$/) do
-	expect(page).to have_selector '.alert', text: 'Categoria atualizada com sucesso'
-end
-
-Then (/^notice message 'Categoria excluída com sucesso'$/) do
-	expect(page).to have_selector '.alert', text: 'Categoria excluída com sucesso'
+  first('.btn', visible: false).click
 end

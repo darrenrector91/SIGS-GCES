@@ -2,16 +2,8 @@ Given (/^I am on the log in page$/) do
 	visit 'http://192.168.2.15:3000'
 end
 
-And (/^I fill in 'email' with 'adm@unb.br'$/) do
-	fill_in('session[email]', :with=> 'adm@unb.br')
-end
-
-And (/^I fill in 'email' with 'invalidbot'$/) do
-	fill_in('session[email]', :with=> 'invalidbot')
-end
-
-And (/^I fill in 'password' with '123456'$/) do
-	fill_in('session[password]', :with=> '123456')
+And (/^I fill in session '([^"]*)' with '([^"]*)'$/) do |field, value|
+	fill_in("session[#{field}]", :with=> value)
 end
 
 When (/^I press 'Entrar' button$/) do

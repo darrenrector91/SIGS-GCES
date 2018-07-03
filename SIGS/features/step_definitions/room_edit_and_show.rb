@@ -12,44 +12,8 @@ And (/^I press 'Icon view' button$/) do
   first(:link, 'Icon view').click
 end
 
-And (/^I fill in 'code' with '987655'$/) do
-  fill_in('room[code]', :with=> '987655')
-end
-
-And (/^I fill in 'code' with '676767'$/) do
-  fill_in('room[code]', :with=> '676767')
-end
-
-And (/^I fill in 'code' with ''$/) do
-  fill_in('room[code]', :with=> '')
-end
-
-And (/^I fill in 'name' with 'S9'$/) do
-  fill_in('room[name]', :with=> 'S9')
-end
-
-And (/^I fill in 'name' with ''$/) do
-  fill_in('room[name]', :with=> '')
-end
-
-And (/^I fill in 'name' with 'a'$/) do
-  fill_in('room[name]', :with=> 'a')
-end
-
-And (/^I fill in 'capacity' with '60'$/) do
-  fill_in('room[capacity]', :with=> '60')
-end
-
-And (/^I fill in 'capacity' with ''$/) do
-  fill_in('room[capacity]', :with=> '')
-end
-
-And (/^I fill in 'capacity' with '2'$/) do
-  fill_in('room[capacity]', :with=> '2')
-end
-
-And (/^I fill in 'capacity' with '900'$/) do
-  fill_in('room[capacity]', :with=> '900')
+And (/^I fill in room '([^"]*)' with '([^"]*)'$/) do |option, value|
+  fill_in("room[#{option}]", :with=> value)
 end
 
 When (/^I delete all rooms$/) do

@@ -17,28 +17,8 @@ And (/^I select '1' in 'discipline_id'$/) do
 	find_field('school_room_discipline_id').find("option[value='1']").text
 end
 
-And (/^I fill in 'name' with 'DD'$/) do
-  find(:css, "input[id$='school_room_name']").set("DD")
-end
-
-And (/^I fill in 'vacancies' with '50'$/) do
-	fill_in('school_room[vacancies]', :with=> '50')
-end
-
-And (/^I fill in 'vacancies' with null$/) do
-	fill_in('school_room[vacancies]', :with=> '')
-end
-
-And (/^I fill in 'vacancies' with '1'$/) do
-	fill_in('school_room[vacancies]', :with=> '1')
-end
-
-And (/^I fill in 'vacancies' with '800'$/) do
-	fill_in('school_room[vacancies]', :with=> '800')
-end
-
-And (/^I fill in 'name' with 'A'$/) do
-	fill_in('school_room[name]', :with=> 'A')
+And (/^I fill in school room '([^"]*)' with '([^"]*)'$/) do |option, value|
+	fill_in("school_room[#{option}]", :with=> value)
 end
 
 And (/^I check 'Retroprojetor'$/) do
@@ -51,28 +31,4 @@ end
 
 Then (/^notice message 'Turma criada'$/) do
 	# expect(page).to have_content('Turma criada')
-end
-
-Then (/^notice message 'Turma com nome já cadastrado'$/) do
-	expect(page).to have_content('Turma com nome já cadastrado')
-end
-
-Then (/^notice message 'Cursos devem ser do mesmo período'$/) do
-	expect(page).to have_content('Cursos devem ser do mesmo período')
-end
-
-Then (/^notice message 'Turma não pode ser vazia'$/) do
-	expect(page).to have_content('Turma não pode ser vazia')
-end
-
-Then (/^notice message 'Capacidade não pode ser vazia'$/) do
-	expect(page).to have_content('Capacidade não pode ser vazia')
-end
-
-Then (/^notice message 'A capacidade mínima é 5 vagas'$/) do
-	expect(page).to have_content('A capacidade mínima é 5 vagas')
-end
-
-Then (/^notice message 'A capacidade máxima é 500 vagas'$/) do
-	expect(page).to have_content('A capacidade máxima é 500 vagas')
 end
