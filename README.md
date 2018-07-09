@@ -96,14 +96,18 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
 
 ### Using the application
 
-* Login with the DEG user or the Coordinator user.
+* Login with the desired user.
 
       DEG User
-      e-mail: "wallacy@unb.br"
+      e-mail: "deg@unb.br"
       password: "123456"
 
       Coordinator User
-      e-mail: "caio@unb.br"
+      e-mail: "coordenador@unb.br"
+      password: "123456"
+      
+      Administrative Assistant
+      e-mail: "adm@unb.br"
       password: "123456"
 
 For more install and configurate informations, access the [Tutorial](https://github.com/fga-gpp-mds/2017.1-SIGS/wiki/Comandos-de-Instala%C3%A7%C3%A3o-do-Ambiente).
