@@ -24,7 +24,7 @@ deploy:
   provider: heroku
   app: sigs-staging
   api_key:
-    secure: ZJYgggv1i+jR0gXZBTpHFKEzGnijmamNg9GRpmmRG4dclMRHlr5yyF9g2Lb8fCZQWIxOqApsV/4rhJELpIqUNtG21TvUaYD92cnxgvetrzNBsiysb964PBm63WsFq9ajToDbsFwyEkiapvCXOOaIDNxKQ/mwbvrGXwX+Jt3qmnktqjCS2hpNpoky4K8621w9mkdr0ioMMC1xPN9Na78GYUB5NlWNd22X+aPWu32EvYB75/qIiO9rTp9iZC3wGsypnragWUz9nLYQxrHOXDjydoSUHX8pmd2mPr2QtKAxHGBta5fU/KQkjdRtXm8wA4pu/lFPWbOvOStKZ+2xfWjSmH6qLjInq4KggtsuvCxIaEZ00Hhjyon1QaQ1jOMNQS0tPVy3arC8q9heySNA1Ce4j3DONwaCnkb+J+19B25zEoelp2rvtU6nfiPyVf8f4Oge+iH4YpT//u7LVOBVI31FhVn6AyIDVfAotmHnV7UquDDUaDK94AuRhd/xi+0nSYKSacKB3FpNRHxwE0lToAs/eRpxpVaXdodgu6mtP/Ds9FGNd6FxmyOcC0BFazO62tmJ49zAJIWWY+N2+d511ewu+ZmIvF8LryWJmA9wdWpU76jW8nV7jIycWPyDn03ir05vXdXt6yLXkUXf/3eNHokZBsPBH67/rgKNuV3fG2YFme0=
+    secure: $HEROKU_API_KEY_STAGING 
   on:
     branch: develop
   run: rails db:seed
