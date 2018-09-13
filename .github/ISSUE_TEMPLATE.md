@@ -50,4 +50,4 @@
 * Software Version (_Release_):
 * Name and version of the browser:
 * Name and version of the Operating System (desktop or mobile):
-* Link to your project (in case of fork of this project:
+* Link to your project (in case of fork of this project):
