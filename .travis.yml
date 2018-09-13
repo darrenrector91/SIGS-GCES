@@ -5,7 +5,7 @@ services:
 - mysql
 before_script:
 - cp SIGS/config/database.yml.travis SIGS/config/database.yml
-- mysql -e 'create database myapp_test;' -uroot
+- mysql -e 'create database myapp_test;' -u root
 notifications:
   slack: sigs-gces:IISF1PsHHYEWEMomYPJ7KWsi
 branches:
