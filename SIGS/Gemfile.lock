@@ -44,7 +44,7 @@ GEM
     afm (0.2.2)
     arel (7.1.4)
     ast (2.4.0)
-    autoprefixer-rails (9.1.4)
+    autoprefixer-rails (8.6.5)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -355,7 +355,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  autoprefixer-rails
+  autoprefixer-rails (~> 8.6.5)
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.2.0)
   brakeman
@@ -397,7 +397,7 @@ DEPENDENCIES
   will_paginate-bootstrap
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.4
