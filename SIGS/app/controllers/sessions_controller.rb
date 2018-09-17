@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if current_user.present?
       redirect_to current_user, notice: 'Você já está logado'
     else
-      render 'new'
+      render 'login'
     end
   end
 
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       active(@user)
     else
       flash[:error] = 'Email ou senha incorretos'
-      render 'new'
+      render 'login'
     end
   end
 
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
       redirect_to current_user, notice: 'Login realizado com sucesso'
     else
       flash[:error] = 'Sua conta não está ativa'
-      render 'new'
+      render 'login'
     end
   end
 end
