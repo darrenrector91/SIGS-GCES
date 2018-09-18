@@ -1,4 +1,3 @@
-/*nav bar*/
 .myNavBar {
     background-color: #004080;
     border-radius: 0px !important;
@@ -79,39 +78,3 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 124px !important;
 }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 124px;
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.footer .myLogo {
-  margin: 15px 0;
-}
-
-.footer .myList {
-  margin-top: 15px;
-  list-style-type: none;
-  text-align: right;
-}
-.footer .myList li {
-  margin-top: 3px;
-}
-
-.footer .myList li a {
-  color: #ffffff;
-}
-
-.footer .myList li a:hover {
-  color: #5FBB46;
-}
-
-.footer .container {
-  background-color: #000000;
-}
-/*Sticky footer END*/
