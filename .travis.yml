@@ -20,11 +20,4 @@ script:
 - rubocop
 after_sucess:
 - coveralls push
-deploy:
-  provider: heroku
-  app: sigs-staging
-  api_key:
-    secure: $HEROKU_API_KEY_STAGING 
-  on:
-    branch: develop
-  run: rails db:seed
+
