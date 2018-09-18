@@ -1,7 +1,8 @@
 /*nav bar*/
 .myNavBar {
-    background-color: #000000;
+    background-color: #004080;
     border-color: #e7e7e7;
+    border-radius: 0px !important;
 }
 
 .myNavBar .navbar-nav>li>a {
@@ -10,16 +11,16 @@
 
 .myNavBar .myNav>li>a:focus, .myNavBar .myNav>li>a:hover {
     text-decoration: none;
-    background-color: #5FBB46;
+    background-color: #337ab7;
 }
 
 .myNavBar .myNav .open>a, .myNavBar .myNav .open>a:focus, .myNavBar .myNav .open>a:hover {
-    background-color: #5FBB46;
+    background-color: #337ab7;
     border-color: #337ab7;
 }
 
 .myNavBar .myBrand {
-  color: #5FBB46;
+  color: #ffffff;
   font-weight: bold;
 }
 
