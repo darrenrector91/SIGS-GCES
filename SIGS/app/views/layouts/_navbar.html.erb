@@ -1,19 +1,14 @@
 <nav class="navbar myNavBar">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavBarCollapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "SIGS", root_path, class: "navbar-brand myBrand" %>
-    </div>
+    
+    
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="myNavBarCollapse">
-      <ul class="nav navbar-nav myNav" id="myNav">
+    <div class="myNavBarCollapse">
+      <%-# image_tag("/assets/unb.png", width: '40') -%>
+      
+      <%= link_to "SIGS", root_path, class: "myBrand" %>
+      <ul class="nav navbar-nav myNav" id="myNav"">
         <% if permission[:level] == 2 %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários <span class="caret"></span></a>
@@ -98,18 +93,27 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right myNav">
-        <li>
-          <%= link_to user_edit_path(current_user) do %>
-            <span class="fa fa-user"></span>
+      <ul class="nav navbar-nav myNav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <img src="/assets/avatar.png" alt="Avatar" class="avatar">
             <%= current_user.name %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to sign_out_path, method: "delete" do %>
-            <span class="fa fa-sign-out-alt bla"></span>
-            Sair
-          <% end %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to user_edit_path(current_user) do %>
+                <span class="fa fa-user"></span>
+                Profile
+              <% end %>
+            </li>
+            <li>
+              <%= link_to sign_out_path, method: "delete" do %>
+                <span class="fa fa-sign-out-alt bla"></span>
+                Sair
+              <% end %>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
