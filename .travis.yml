@@ -24,11 +24,13 @@ after_sucess:
 deploy:
   # Deploy develop on the staging environment
   - provider: script
-    script: bash script/staging-deploy.sh
+    script: bash ../script/staging-deploy.sh
+    skip_cleanup: true
     on:
       branch: develop
   # Deploy master on the production environment
   - provider: script
-    script: bash script/staging-deploy.sh
+    script: bash ../script/production-deploy.sh
+    skip_cleanup: true
     on:
       branch: master

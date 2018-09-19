@@ -5,5 +5,6 @@
 # Author: João Pedro Sconetto <sconetto.joao@gmail.com>
 # Author: Arthur Diniz <arthurbdiniz@gmail.com>
 
-docker tag sigs-gces_web $DOCKERHUB_USER/sigs-gces:latest
+docker-compose -f ../docker-compose.yml up --build -d
+docker tag sigsgces_web $DOCKERHUB_USER/sigs-gces:latest
 docker push $DOCKERHUB_USER/sigs-gces:latest

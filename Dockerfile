@@ -15,7 +15,7 @@ RUN bundle install
 
 COPY . /SIGS-MES
 
-RUN chmod +x start-dev.sh
+RUN chmod +x SIGS/start-dev.sh
 
 EXPOSE  3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
