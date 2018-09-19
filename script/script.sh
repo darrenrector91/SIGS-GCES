@@ -11,8 +11,8 @@ source /home/vagrant/.rvm/scripts/rvm
 echo "Installing rvm: Done"
 
 echo "Installing ruby: starting"
-rvm install 2.3.1
-rvm use 2.3.1 --default
+rvm install 2.5.1
+rvm use 2.5.1 --default
 echo "Ruby instaled: DONE"
 
 echo "Installing rails: starting"
