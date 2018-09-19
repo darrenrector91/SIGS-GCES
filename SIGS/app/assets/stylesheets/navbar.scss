@@ -1,26 +1,38 @@
-/*nav bar*/
 .myNavBar {
-    background-color: #000000;
-    border-color: #e7e7e7;
+    background-color: #004080;
+    border-radius: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myNavBarCollapse {
+  display: flex!important;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .myNavBar .navbar-nav>li>a {
     color: #ffffff;
+    padding-top: 0px; 
+    padding-bottom: 0px;
 }
 
 .myNavBar .myNav>li>a:focus, .myNavBar .myNav>li>a:hover {
     text-decoration: none;
-    background-color: #5FBB46;
+    background-color: #337ab7;
 }
 
 .myNavBar .myNav .open>a, .myNavBar .myNav .open>a:focus, .myNavBar .myNav .open>a:hover {
-    background-color: #5FBB46;
+    background-color: #337ab7;
     border-color: #337ab7;
 }
 
 .myNavBar .myBrand {
-  color: #5FBB46;
+  color: #ffffff;
   font-weight: bold;
+  text-decoration: none;
+  font-size: 20px
 }
 
 .navbar-toggle .icon-bar {
@@ -28,6 +40,9 @@
 }
 
 @media (max-width: 767px) {
+  #myNav {
+    display: none;
+  }
   .navbar-nav .open .dropdown-menu>li>a {
     color: #ffffff;
   }
@@ -36,13 +51,24 @@
   }
 }
 
+.container {
+  width: 100% !important;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
 .welcomeUser {
   margin-bottom: 50px;
   text-align: right;
 }
 
 /* Sticky footer */
-
 html {
   position: relative;
   min-height: 100%;
@@ -52,39 +78,3 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 124px !important;
 }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 124px;
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.footer .myLogo {
-  margin: 15px 0;
-}
-
-.footer .myList {
-  margin-top: 15px;
-  list-style-type: none;
-  text-align: right;
-}
-.footer .myList li {
-  margin-top: 3px;
-}
-
-.footer .myList li a {
-  color: #ffffff;
-}
-
-.footer .myList li a:hover {
-  color: #5FBB46;
-}
-
-.footer .container {
-  background-color: #000000;
-}
-/*Sticky footer END*/

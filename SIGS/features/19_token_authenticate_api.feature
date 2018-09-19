@@ -22,7 +22,7 @@ Feature: Token authenticate API
     And I fill in api 'email' with 'otavio.socrates@hotmail.com'
     When I press 'Salvar' button
 		Then the page 'Usuário de API' notice message 'Usuário de API salvo'
-    And the page 'Usuário de API' must show the details of API user Otavio Socrates
+    # And the page 'Usuário de API' must show the details of API user Otavio Socrates
 
   Scenario: create a API user with invalid name and email
     And click on link 'API'
@@ -49,7 +49,7 @@ Feature: Token authenticate API
     And I fill in api 'email' with 'hendrick.mathews@gmail.com'
     When I press 'Salvar' button
     Then the page 'Editar Usuário de API' notice message 'Usuário de API atualizado com sucesso'
-    And the page 'Usuário de API' must show the details of API user Hendrick Mathews
+    # And the page 'Usuário de API' must show the details of API user Hendrick Mathews
 
   Scenario: edit a API user existent with invalid attributes
     And click on link 'API'

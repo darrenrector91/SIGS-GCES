@@ -22,10 +22,13 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Other files
 .vagrant
 .gitignore
 SIGS/coverage
 SIGS/script/dbScript
+SIGS/.generators
+SIGS/.rakeTasks
 
-$ Ignore IDE files
+# Ignore IDE files
 .idea/

@@ -1,17 +1,16 @@
 language: ruby
 rvm:
-- 2.3.1
+- 2.5.1
 services:
 - mysql
 before_script:
 - cp SIGS/config/database.yml.travis SIGS/config/database.yml
-- mysql -e 'create database myapp_test;' -uroot
-notifications:
-  slack: sigs-gces:IISF1PsHHYEWEMomYPJ7KWsi
+- mysql -e 'create database myapp_test;' -u root
 branches:
   only:
   - "/.*/"
 script:
+- echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
 - cd SIGS
 - bundle install
 - bundle exec rake db:load_config
@@ -23,10 +22,13 @@ script:
 after_sucess:
 - coveralls push
 deploy:
-  provider: heroku
-  app: sigsunb
-  api_key:
-    secure: Yxxp3xzQ3Vcktw4OOS94+TQkOaSS5fK1nTrNBbInYcqkwZGMfM3kXo0JbrrcJtRolqvr9DETzbC8o8ZJjrdYR51J7mlgaoBEsHNCpuTdzSUXmSBGuHy/8OQgOwebxqJXjx75l3BOmvaMgt+PjNrVCRSDPr9L2qStqBTF94omBz8TXGgfAfcQgVlhp5Obb13pW60ND3dRSI9tWIfs4eBVa0InMjTEOirV2xZ894sh97pVdnxyk4hLItkcWZ/p8UH3mQU4PPhpn157m2eB7ApLW4vtUxmgv3PO742F8ow0U6ZhO0bkBDjdGV80GcP0CsAdx1C6V4P6X/TC862j0nyJPW6JVqiO8t5xBs74l9vn+7a8C2wB3mcWgAxVF6gqQOBPO0lV5Jk6PZSuQyFx3zrJtvVFA8ZV/oaJBNAJsyY6PMvAXcrSfC2O8xCBmKztCC63iGWxVQ2mMKFCy2leqGiB4ZdOjnwBt6WNcNe6PN701y3Xs+6kTIrxTCfKVN6nEemOg/xz5tvPDJyPl7eC5bjPfU7HASIWCNVn/3gzk23FTozqRunbXW6quqpYPNw9P6cSb6VK8h1IAjYFd/2F8TIkHlXwroXuPKT3tdxQZs6Z/70MMRBt28bZr/795uu7CSvrC0wL6yPpPh4V+FrMnvuFQ/pom4NZ7dZyRapjt/OLe2g=
-  on:
-    branch: master
-  run: "rails db:seed"
+  # Deploy develop on the staging environment
+  - provider: script
+    script: bash script/staging-deploy.sh
+    on:
+      branch: develop
+  # Deploy master on the production environment
+  - provider: script
+    script: bash script/staging-deploy.sh
+    on:
+      branch: master
