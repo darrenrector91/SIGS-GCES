@@ -1,3 +1,75 @@
-.login-form{
-  
+.background{
+  position: absolute;
+  background-image: image-url("unb-background-login.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.image_sigs{
+  background-image: image-url("sigs_logo.png");
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-color: white;
+  height: 220px;
+  width: 210px;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.form-login{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  margin-left: 35%;
+  margin-top: 10%;
+  width: 500px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.rails-login{
+  display: flex ;
+  flex-direction: column ;
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 0;
+  margin-right: 0;
+  left: 0;
+  right: 0;
+}
+
+.username{
+  margin-right: 20px;
+  margin-left: 30px;
+  margin-top: 50px;
+  width: 90%;
+}
+
+.password{
+  margin-right: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
+  width: 90% !important;
+}
+
+
+.login {
+  align-self: center;
+  width: 40% !important;
+  height: 50px;
+  margin-right: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.cadastro {
+  text-align: center;
+  align-self: center;
+  width: 40% !important ;
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 30px;
 }
