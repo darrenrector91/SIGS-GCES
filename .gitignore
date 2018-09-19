@@ -30,8 +30,5 @@ SIGS/script/dbScript
 SIGS/.generators
 SIGS/.rakeTasks
 
-# Ignore script generated file
-/SIGS/start-dev.sh
-
 # Ignore IDE files
 .idea/
