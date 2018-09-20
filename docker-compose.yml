@@ -13,7 +13,6 @@ services:
     command: /bin/bash -l -c "chmod +x start-dev.sh && ./start-dev.sh"
     volumes:
       - ./SIGS:/SIGS-MES
-      - ./start-dev.sh:/SIGS-MES/start-dev.sh
     ports:
       - "3000:3000"
     links:
