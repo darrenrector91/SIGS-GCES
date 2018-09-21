@@ -1,5 +1,6 @@
 <h1>Salas</h1>
 <table class="table">
+
   <tr>
   <%= form_tag(room_index_post_path, :method => :post) do %>
     <td>
@@ -43,14 +44,14 @@
         <span class="fa fa-search"></span> Pesquisar
       <% end %>
     </td>
-    <td colspan="2">
+    <td>
       <br>
       <%= link_to room_index_path, class: "btn btn-primary pull-right" do %>
         <span class="fa fa-eraser"></span> Limpar Filtros
       <% end %>
     </td>
   </tr>
-
+  
 <% end %>
 
 </table>
