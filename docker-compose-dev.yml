@@ -9,7 +9,9 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD='true'
 
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
     command: /bin/bash -l -c "chmod +x start-dev.sh && ./start-dev.sh"
     volumes:
       - ./SIGS:/SIGS-MES
