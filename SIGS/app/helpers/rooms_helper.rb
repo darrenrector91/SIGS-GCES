@@ -29,6 +29,6 @@ module RoomsHelper
 
   def filter_by_code
     return unless params[:code].present?
-    @rooms = @rooms.where('rooms.code' => params[:code])
+    @rooms = @rooms.where('rooms.code LIKE ?', "%#{params[:code]}%")
   end
 end
