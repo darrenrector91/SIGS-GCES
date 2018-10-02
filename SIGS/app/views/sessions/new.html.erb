@@ -1,11 +1,14 @@
 <div class="background">
+</div>
 <div class="form-login">
-  <label class="image_sigs"></label>
-    <%= form_for :session, url: sign_in_path, html: {class:"rails-login"} do |f| %>
-      <%= f.email_field :email, autofocus: true, class: "username", placeholder: "Username"  %>
-      <%= f.password_field :password, autocomplete: "off", class: "password", placeholder: "Password" %>
-      <%= f.submit "Entrar", class: "login btn btn-success" %>
-      <%= link_to "Solicitar Cadastro", user_new_path, class: "cadastro" %>
-    <% end %>
+  <!-- <div class="image_sigs" width="460" height="345"></div> -->
+  <!-- <img src="unb_logo.png" class="image_sigs" width="460" height="345"> -->
+  <%= form_for :session, url: sign_in_path, html: {class:"rails-login"} do |f| %>
+    <%= f.email_field :email, autofocus: true, class: "input-field", placeholder: "Username"  %>
+    <%= f.password_field :password, autocomplete: "off", class: "input-field", placeholder: "Password" %>
+    <%= f.submit "Entrar", class: "button-success" %>
+  <% end %>
+  <div class="form-login-footer">
+    <%= link_to "Solicitar Cadastro", user_new_path, class: "cadastro" %>
   </div>
 </div>

@@ -1,6 +1,8 @@
 .background{
   position: absolute;
   background-image: image-url("unb-background-login.jpg");
+  -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+  filter: blur(5px);
   background-size: cover;
   background-repeat:no-repeat;
   top: 0;
@@ -11,57 +13,91 @@
 .image_sigs{
   background-image: image-url("unb_logo.png");
   background-repeat:no-repeat;
-  background-size: cover;
-  background-color: white;
-  height: 160px;
-  width: 320px;
-  align-self: center;
-  margin-top: 20px;
+  background-size: 100% 100%;
+  // width: 50%;
+  // height: 150px;
+  // background-size: contain;
+  // align-self: center;
+  // margin-top: 20px;
+  width: 100%;
+  height: 200px;
 }
 
 .form-login{
+  position: relative;
   display: flex;
   flex-direction: column;
   background: white;
-  margin-left: 35%;
+  margin: auto;
+  border-radius: 5px;
   margin-top: 10%;
-  width: 500px;
+  width: 40%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-login-footer {
+  background-color: #F0F1F6;
+  width: 100%;
+  height: 50px;
+}
+
+@media only screen and (min-width: 320px) {
+  .form-login{
+    width: 92%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .form-login{
+    width: 55%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .form-login{
+    width: 55%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .form-login{
+    width: 40%;
+  }
 }
 
 .rails-login{
   display: flex ;
   flex-direction: column ;
   width: 100%;
-  margin-top: 50px;
-  margin-left: 0;
-  margin-right: 0;
-  left: 0;
-  right: 0;
+  padding: 30px;
+  margin: 0 auto !important;
 }
 
-.username{
-  margin-right: 20px;
-  margin-left: 30px;
-  margin-top: 50px;
-  width: 90%;
-}
-
-.password{
-  margin-right: 20px;
-  margin-left: 30px;
+.input-field {
   margin-top: 10px;
-  width: 90% !important;
+  padding-left: 10px;
+  width: 100%;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  border-style: solid;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  border-width: 2px;
+  border-color: #e6e7ed;
 }
 
-
-.login {
+.button-success {
+  width: 100% !important;
   align-self: center;
-  width: 40% !important;
   height: 50px;
-  margin-right: 20px;
-  margin-left: 30px;
-  margin-top: 10px;
+  border-radius: 5px;
+  border-style: none;
+  color: white;
+  background-color: #133E79;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: 300;
 }
 
 .cadastro {
