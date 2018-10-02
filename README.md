@@ -40,6 +40,8 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
 * Build the container image
 
       $ docker-compose build
+      
+* Or download it from [DockerHub](https://hub.docker.com/r/projetosigs/sigs-gces/)
 
 * Run the container
 
