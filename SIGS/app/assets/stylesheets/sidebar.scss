@@ -1,0 +1,41 @@
+.sidebarComponent{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 270px !important;
+  box-shadow: 0 0px 8px  rgba(0, 0, 0, 0.2), 0 0px 20px  rgba(0, 0, 0, 0.19);
+}
+
+.personalInfo {
+  background-color: #003366;
+  width: 100%;
+  height: 20%;
+}
+
+.sidebarFunctions{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+
+.div-action-sidebar{
+  display: flex;
+  flex-direction: row;
+  height: 5%;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 10px;
+  background-color: white;
+  border-bottom: 1px groove;
+}
+
+label{
+  
+  // TODO ADD FONT ROBOTO TO THE PROJECT
+}
