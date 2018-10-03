@@ -1,5 +1,5 @@
 .background{
-  position: absolute;
+  position: fixed;
   background-image: image-url("unb-background-login.jpg");
   -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
   filter: blur(5px);
@@ -30,9 +30,9 @@
 }
 
 .form-login-brand {
-  color: #ffffff;
+  color: #ffffff !important;
+  text-decoration : none !important; 
   font-weight: bold;
-  text-decoration: none;
   font-size: 30px;
   padding: 30px;
 }
