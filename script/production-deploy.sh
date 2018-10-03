@@ -11,4 +11,4 @@ docker push $DOCKERHUB_USER/sigs-gces:stable
 
 sudo apt-get install sshpass -y
 # Production machine isn't available yet
-sshpass -p $SSH_PASSWORD ssh sigs@0.0.0.0 '/bin/bash /home/sigs/SIGS-GCES/script/deploy.sh
+sshpass -p $SSH_PASSWORD ssh $SSH_USER@0.0.0.0 '/bin/bash /home/sigs/SIGS-GCES/script/deploy.sh

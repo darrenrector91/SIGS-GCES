@@ -10,4 +10,4 @@ docker tag sigsgces_web $DOCKERHUB_USER/sigs-gces:latest
 docker push $DOCKERHUB_USER/sigs-gces:latest
 
 sudo apt-get install sshpass -y
-sshpass -p $SSH_PASSWORD ssh sigs@68.183.18.1 '/bin/bash /home/sigs/SIGS-GCES/script/deploy.sh'
+sshpass -p $SSH_PASSWORD ssh $SSH_USER@$SSH_ADDRESS '/bin/bash /home/sigs/SIGS-GCES/script/deploy.sh'
