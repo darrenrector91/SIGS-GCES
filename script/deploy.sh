@@ -12,5 +12,5 @@ echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
 docker pull projetosigs/sigs-gces:latest
 docker-compose -f ../docker-compose-dev.yml pull --include-deps db
 docker-compose -f ../docker-compose-dev.yml up -d
-docker lougout
+docker logout
 rm -r /home/sigs/.docker/config.json
