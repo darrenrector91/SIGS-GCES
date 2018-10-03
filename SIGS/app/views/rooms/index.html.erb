@@ -19,6 +19,11 @@
 
   <tr>
     <td>
+      <%= label_tag("Campus") %>
+      <%= select_tag 'campus_id', options_for_select(@campi.map{ |campus| [campus.name, campus.id] }), include_blank: true %>
+    </td>
+    <td>
+    <td>
       <%= label_tag("Ala") %>
       <% itens = [["NORTE"], ["CENTRAL"], ["SUL"]] %>
       <%= select_tag 'wing', options_for_select(itens, " "), include_blank: true %>

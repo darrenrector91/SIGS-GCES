@@ -31,4 +31,9 @@ module RoomsHelper
     return unless params[:code].present?
     @rooms = @rooms.where('rooms.code LIKE ?', "%#{params[:code]}%")
   end
+  
+  def filter_by_campus
+    return unless params[:campus_id].present?
+    @rooms = @rooms.where(:department => Campus.find_by_id(params[:campus_id]).departments)
+  end
 end
