@@ -5,7 +5,8 @@ RSpec.describe ReportsSchoolRoomsController, type: :controller do
   describe 'report school room controller methods' do
     before(:each) do
       @user = User.create(name: 'joao silva', email: 'joaosilva@unb.br', password: '123456', registration:'1100061', cpf:'05601407380', active: true)
-      @department = Department.create(name: 'Departamento de Matemática', code: '007')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(name: 'Departamento de Matemática', code: '007', campus_id: @campus.id)
       @course = Course.create(name:'Matemática', code: '009', department: @department)
       @coordinator = Coordinator.create(user: @user, course: @course)
 

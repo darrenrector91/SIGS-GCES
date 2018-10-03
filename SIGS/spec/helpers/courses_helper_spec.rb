@@ -16,7 +16,8 @@ RSpec.describe CoursesHelper, type: :helper do
 
     before(:each) do
       @user = User.create(name: 'teste123', cpf: '05365052170', registration: '1234567' , email: 'test@unb.br', password: '123123', active: true)
-      @department = Department.create(code:"123",name:"departmentTest")
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(code:"123",name:"departmentTest", campus_id: @campus.id)
       @course = Course.create(code:"123",name:"courseTest",department: @department)
       @coordinator_test = Coordinator.create(course: @course, user: @user)
     end

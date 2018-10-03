@@ -12,12 +12,14 @@ class RoomsController < ApplicationController
     @buildings = Building.all
     @department = Department.all
     @user_department = find_user_department
+    @campi = Campus.all
     filter_by_name
     filter_by_code
     filter_by_capacity
     filter_by_buildings
     filter_by_wings
     filter_by_department
+    filter_by_campus
   end
 
   def find_user_department
@@ -97,6 +99,7 @@ class RoomsController < ApplicationController
       :time_grid_id,
       :building_id,
       :department,
+      :campus_id,
       category_ids: []
     )
   end
