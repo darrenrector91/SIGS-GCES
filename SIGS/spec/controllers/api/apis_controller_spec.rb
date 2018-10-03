@@ -9,7 +9,8 @@ RSpec.describe Api::ApisController, type: :controller do
 			TOKEN ||= 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQW5hIFBhdWxhIENoYXZlcyIsImVtYWlsIjoiYW5hcGF1bGEuY2hhdmVzQGdtYWlsLmNvbSJ9.2ZOfSu2AbDH6EdIblImBG5ciVoXogLlXvUaWJAz17qc'
 			TOKEN_2 ||= 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiR3VzdGF2byBGcmVpcmUgT2xpdmVpcmEiLCJlbWFpbCI6ImZyZWlyZS5vbGl2ZWlyYUBob3RtYWlsLmNvbSJ9.vNfwaSxpdVosGsnaS06JWt9NtMoAkOqwnjWcIAnFCy4'
 			@api_user = ApiUser.create(name: 'Ana Paula Chaves', email: 'anapaula.chaves@gmail.com', secret: SECRET, token: TOKEN, user: @user)
-			@department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL')
+			@campus = Campus.create(name: 'Gama')
+			@department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL', campus_id: @campus.id)
 			@category = Category.create(name: 'Laboratório Químico')
 			@building = Building.create(code: 'pjc', name: 'Pavilhão João Calmon', wing: 'NORTE')
 			@room = Room.create(code: '124325', name: 'S10', capacity: 50, active: true, time_grid_id: 1, department: @department, building: @building, category_ids: [@category.id])

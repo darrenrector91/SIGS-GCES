@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe AllocationsController, type: :controller do
   describe 'Allocation new,create and destroy methods' do
     before(:each) do
-      @department = Department.create(code: '789', name: 'Engenharia')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(code: '789', name: 'Engenharia', campus_id: @campus.id)
       @discipline = Discipline.create(code: '876', name: 'Cálculo 3', department: @department)
       @discipline2 = Discipline.create(code: '286', name: 'Cálculo 4', department: @department)
       @course = Course.create(code: '10', name: 'Engenharia de Software', department: @department, shift: 1)
