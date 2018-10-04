@@ -4,6 +4,7 @@
 class SchoolRoomsController < ApplicationController
   before_action :logged_in?
   before_action :authenticate_coordinator?, except: [:index]
+  # before_action :set_search_params, only: [:index]
 
   def new
     @school_room = SchoolRoom.new
@@ -15,7 +16,7 @@ class SchoolRoomsController < ApplicationController
     @school_room.name.upcase!
     @all_courses = Course.all
     if @school_room.save
-      redirect_to school_rooms_index_path, flash: { success: 'Turma criada' }
+      redirect_to school_rooms_path, flash: { success: 'Turma criada' }
     else
       ocurred_errors(@school_room)
       render :new
@@ -39,7 +40,14 @@ class SchoolRoomsController < ApplicationController
     else
       @my_school_rooms = SchoolRoom.all
     end
+
+    @my_school_rooms = apply_filters(@my_school_rooms)
+
     @my_school_rooms = @my_school_rooms.paginate(page: params[:page], per_page: 10)
+    @allocation_options = [
+      ['Alocado', 'allocated'],
+      ['Desalocado', 'non_allocated']
+    ]
     # needs refactoring
     # sort_school_rooms_by_allocation
   end
@@ -53,7 +61,7 @@ class SchoolRoomsController < ApplicationController
       @school_rooms = school_rooms_of_disciplines(@disciplines)
     else
       flash[:notice] = 'Nenhuma turma encontrada'
-      redirect_to school_rooms_index_path
+      redirect_to school_rooms_path
     end
   end
 
@@ -69,7 +77,7 @@ class SchoolRoomsController < ApplicationController
     @all_courses = Course.all
     if @school_room.update_attributes(school_rooms_params_update)
       success_message = 'A turma foi alterada com sucesso'
-      redirect_to school_rooms_index_path, flash: { success: success_message }
+      redirect_to school_rooms_path, flash: { success: success_message }
     else
       ocurred_errors(@school_room)
       render :edit
@@ -86,7 +94,7 @@ class SchoolRoomsController < ApplicationController
     else
       flash[:error] = 'Permissão negada'
     end
-    redirect_to school_rooms_index_path
+    redirect_to school_rooms_path
   end
 
   private
@@ -108,5 +116,35 @@ class SchoolRoomsController < ApplicationController
       course_ids: [],
       category_ids: []
     )
+  end
+
+  def apply_filters(query)
+    @params = search_params
+    if !@params.nil?
+      if @params.has_key?(:search) && !@params.fetch(:search).blank?
+        name = @params.fetch(:search)
+        query = query
+        .joins(:discipline)
+        .where(disciplines: { name: name })
+      end
+      
+      if @params.has_key?(:allocation)
+        allocation = @params.fetch(:allocation)
+        if allocation == 'allocated'
+          query = query.joins(:allocations)
+        elsif allocation == 'non_allocated'
+          query = query.left_outer_joins(:allocations)
+        end
+      end
+    end
+    query
+  end
+
+  def search_params
+    if params[:current_search].present?
+      params.require(:current_search).permit(:search, :allocation)
+    else
+      ActionController::Parameters.new(search: '', allocation: '')
+    end
   end
 end

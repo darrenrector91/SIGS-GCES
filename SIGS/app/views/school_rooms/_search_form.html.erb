@@ -1,0 +1,42 @@
+<%= form_for(:current_search, method: :get, url: '') do |f|%>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :disciplina %>
+      <%= f.text_field :search,
+      placeholder: "Ex.: Cálculo",
+      id: 'input-search-field',
+      value: @params.fetch(:search),
+      class: 'form-control',
+        data: {
+          autocomplete_source: @discipline
+        }
+        %>
+        </div>
+        <div class="col-sm-3">
+        <%= f.label :allocation, "Alocação" %>
+        <div class="block">
+          <%= f.select :allocation,
+            allocation_options,
+            html_options: {
+              class: 'form-control'
+            },
+            selected: @params.fetch(:allocation),
+            include_blank: true
+          %>
+        </div>
+    </div>
+    <div class="col-sm-3">
+      <%= button_tag type: "submit", class: "btn btn-info", id: "searchButton" do %>
+        <i class="fa fa-search fa-lg"></i>
+      <% end %>
+    </div>
+    <% if permission[:level] == 1 %>
+      <%= link_to "Criar Nova Turma",
+        new_school_room_path,
+        class: "btn btn-primary pull-right",
+        role: "button"
+      %>
+    <% end %>
+  </div>
+<% end %>

@@ -186,7 +186,7 @@ class SolicitationsController < ApplicationController
       redirect_to allocation_period_path(solicitation.school_room.id)
     elsif solicitation.save
       success_message = 'Solicitação Enviada'
-      redirect_to school_rooms_index_path, flash: { success: success_message }
+      redirect_to school_rooms_path, flash: { success: success_message }
     else
       ocurred_errors(solicitation)
       redirect_to allocation_period_path(solicitation.school_room.id)

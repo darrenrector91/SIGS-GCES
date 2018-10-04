@@ -7,9 +7,9 @@
       <div class="col-sm-3">
           <ul class="myList">
             <% if permission[:level] == 1 %>
-                <li><%= link_to "Gerenciar Turmas", school_rooms_index_path %></li>
+                <li><%= link_to "Gerenciar Turmas", school_rooms_path %></li>
             <%  else %>
-                <li><%= link_to 'Turmas', school_rooms_index_path %></li>
+                <li><%= link_to 'Turmas', school_rooms_path %></li>
             <% end %>
             <% if permission[:level] != 0 %>
                 <li><%= link_to "Solicitações", solicitations_index_path %></li>
