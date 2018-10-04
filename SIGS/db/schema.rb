@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616032538) do
+ActiveRecord::Schema.define(version: 20181002201715) do
 
   create_table "administrative_assistants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
@@ -79,12 +79,18 @@ ActiveRecord::Schema.define(version: 20170616032538) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "campuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
   create_table "categories_rooms", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "category_id", null: false
     t.integer "room_id",     null: false
@@ -139,6 +145,8 @@ ActiveRecord::Schema.define(version: 20170616032538) do
     t.string   "acronym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "campus_id"
+    t.index ["campus_id"], name: "index_departments_on_campus_id", using: :btree
   end
 
   create_table "disciplines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -250,6 +258,7 @@ ActiveRecord::Schema.define(version: 20170616032538) do
   add_foreign_key "coordinators", "users"
   add_foreign_key "courses", "departments"
   add_foreign_key "degs", "users"
+  add_foreign_key "departments", "campuses"
   add_foreign_key "disciplines", "departments"
   add_foreign_key "room_solicitations", "solicitations"
   add_foreign_key "rooms", "departments"

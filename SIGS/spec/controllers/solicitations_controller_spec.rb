@@ -7,8 +7,9 @@ RSpec.describe SolicitationsController, type: :controller do
         password: '123456', registration:'1100061', cpf:'05601407380', active: true)
       @user2 = User.create(name: 'kleber matos', email: 'kleber@unb.br',
         password: '123456', registration:'1100078', cpf:'05601407378', active: true)
-      @department1 = Department.create(name: 'Departamento de Matemática', code: '007')
-      @department2 = Department.create(name: 'Departamento de Física', code: '008')
+      @campus = Campus.create(name: 'Gama')
+      @department1 = Department.create(name: 'Departamento de Matemática', code: '007', campus_id: @campus.id)
+      @department2 = Department.create(name: 'Departamento de Física', code: '008', campus_id: @campus.id)
       @course1 = Course.create(name:'Matemática', code: '009', department: @department1, shift: 1)
       @course2 = Course.create(name:'Matemática', code: '001', department: @department2, shift: 2)
       @discipline1 = Discipline.create(name: 'Anãlise Combinatória', code: '123', department: @department1)
@@ -38,8 +39,9 @@ end
         password: '123456', registration:'1100078', cpf:'05601407378', active: true)
       @user3 = User.create(name: 'maria jose', email: 'majose@unb.br',
         password: '123456', registration:'1102278', cpf:'23601407378', active: true)
-      @department1 = Department.create(name: 'Departamento de Matemática', code: '007')
-      @department2 = Department.create(name: 'Departamento de Física', code: '008')
+      @campus = Campus.create(name: 'Gama')
+      @department1 = Department.create(name: 'Departamento de Matemática', code: '007', campus_id: @campus.id)
+      @department2 = Department.create(name: 'Departamento de Física', code: '008', campus_id: @campus.id)
       @course1 = Course.create(name:'Matemática', code: '009', department: @department1, shift: 1)
       @course2 = Course.create(name:'Matemática', code: '001', department: @department2, shift: 2)
       @discipline1 = Discipline.create(name: 'Anãlise Combinatória', code: '123', department: @department1)
@@ -117,8 +119,9 @@ end
         password: '123456', registration:'1100078', cpf:'05601407378', active: true)
       @user3 = User.create(name: 'maria jose', email: 'majose@unb.br',
         password: '123456', registration:'1102278', cpf:'23601407378', active: true)
-      @department1 = Department.create(name: 'Departamento de Matemática', code: '007', wing: 'NORTE')
-      @department2 = Department.create(name: 'Departamento de Física', code: '008', wing: 'SUL')
+      @campus = Campus.create(name: 'Gama')
+      @department1 = Department.create(name: 'Departamento de Matemática', code: '007', wing: 'NORTE', campus_id: @campus.id)
+      @department2 = Department.create(name: 'Departamento de Física', code: '008', wing: 'SUL', campus_id: @campus.id)
       @course1 = Course.create(name:'Matemática', code: '009', department: @department1, shift: 1)
       @course2 = Course.create(name:'Matemática', code: '001', department: @department2, shift: 2)
       @course3 = Course.create(name:'Matemática', code: '011', department: @department1, shift: 1)
@@ -221,8 +224,9 @@ end
 
   describe 'approve_solicitation' do
     before(:each) do
-      @department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL')
-      @department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL', campus_id: @campus.id)
+      @department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE', campus_id: @campus.id)
       @course_2 = Course.create(code: '12', name: 'Engenharia Eletrônica', department: @department, shift: 1)
       @course_4 = Course.create(code: '09', name: 'Artes Visuais', department: @department_3, shift: 2)
       @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
@@ -269,8 +273,9 @@ end
 
   describe 'recuse solicitation' do
     before(:each) do
-      @department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL')
-      @department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(code: '789', name: 'Engenharia', wing: 'SUL', campus_id: @campus.id)
+      @department_3 = Department.create(code: '156', name: 'Artes', wing: 'NORTE', campus_id: @campus.id)
       @course_2 = Course.create(code: '12', name: 'Engenharia Eletrônica', department: @department, shift: 1)
       @course_4 = Course.create(code: '09', name: 'Artes Visuais', department: @department_3, shift: 2)
       @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: 1, password: '123456')
