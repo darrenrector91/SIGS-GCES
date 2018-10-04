@@ -1,4 +1,4 @@
-.sidebarComponent{
+.sidebarComponent {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -9,33 +9,103 @@
   box-shadow: 0 0px 8px  rgba(0, 0, 0, 0.2), 0 0px 20px  rgba(0, 0, 0, 0.19);
 }
 
+.foto-perfil{
+  background-image: image-url("anonimo.png");
+  background-size: cover;
+  background-repeat:no-repeat;
+  margin-top: 5%;
+  margin-bottom: auto;
+  margin-left: 10px;
+  margin-right: 5%;
+  width: 70px;
+  height: 60px;
+}
+
 .personalInfo {
+  display: flex;
+  flex-direction: row;
   background-color: #003366;
   width: 100%;
   height: 20%;
+  min-height: 200px;
+  color: white;
 }
 
-.sidebarFunctions{
+.informacoes{
   display: flex;
   flex-direction: column;
-  background-color: white;
-  width: 100%;
-  height: 100%;
+  color: white;
 }
 
+.personalInfo-label {
+  margin-top: 3%;
+  margin-left: 5%;
+  font-size: 20px;
+}
 
-.div-action-sidebar{
+.function-salas{
   display: flex;
   flex-direction: row;
+  min-height: 20px;
   height: 5%;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 10px;
-  background-color: white;
-  border-bottom: 1px groove;
+  border-bottom: 1px solid;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-label{
-  
-  // TODO ADD FONT ROBOTO TO THE PROJECT
+.label-funcoes{
+  margin-top: auto;
+  margin-bottom: auto;
 }
+
+.icon-sala{
+  background-image: image-url("salas.png");
+  background-size: cover;
+  background-repeat:no-repeat;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  margin-right: 5%;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-ofertas{
+  background-image: image-url("oferta.png");
+  background-size: cover;
+  background-repeat:no-repeat;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  margin-right: 5%;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-solicitacoes{
+  background-image: image-url("solicitacoes.png");
+  background-size: cover;
+  background-repeat:no-repeat;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  margin-right: 5%;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-relatorios{
+  background-image: image-url("relatorios.png");
+  background-size: cover;
+  background-repeat:no-repeat;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  margin-right: 5%;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+// TODO ADD FONT ROBOTO TO THE PROJECT
