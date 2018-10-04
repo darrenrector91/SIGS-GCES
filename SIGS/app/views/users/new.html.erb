@@ -31,7 +31,10 @@
           <%= f.text_field :email, class: 'form-control', placeholder: 'exemplo@unb.br' %>
 
           <%= f.label :cpf, "CPF " %>
-          <%= f.text_field :cpf, class: 'form-control'%>
+          <%= f.text_field :cpf, class: 'form-control' %>
+
+          <%= f.label :image, "Avatar" %>
+          <%= f.file_field :image, class: 'form-control' %>
 
           <fieldset id="type">
             <div class="radioButton">
