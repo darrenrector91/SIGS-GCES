@@ -6,11 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Campi
+puts "Creating Campi"
+campus = Campus.find_or_create_by(name: 'Darcy Ribeiro')
+campus_2 = Campus.find_or_create_by(name: 'Gama')
+
 # Departaments
 puts "Creating Departaments"
-department = Department.find_or_create_by(code: '789', name: 'Engenharia', wing: 'SUL')
-department_2 = Department.find_or_create_by(code: '781', name: 'PRC', wing: 'SUL')
-department_3 = Department.find_or_create_by(code: '156', name: 'Artes', wing: 'NORTE')
+department = Department.find_or_create_by(code: '789', name: 'Engenharia', wing: 'SUL', campus_id: campus_2.id)
+department_2 = Department.find_or_create_by(code: '781', name: 'PRC', wing: 'SUL', campus_id: campus.id)
+department_3 = Department.find_or_create_by(code: '156', name: 'Artes', wing: 'NORTE', campus_id: campus.id)
 
 # Courses
 puts "Creating Courses"

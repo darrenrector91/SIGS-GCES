@@ -5,7 +5,8 @@ RSpec.describe CoordinatorHelper, type: :helper do
   describe "Testing CoordinatorHelper methods" do
 
     before(:each) do
-      @department = Department.create(code: '789', name: 'Engenharia')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(code: '789', name: 'Engenharia', campus_id: @campus.id)
       @course = Course.create(code: '10', name: 'Engenharia de Software', department: @department)
       @user = User.create(name: 'Caio Filipe', email: 'coordenador@unb.br', cpf: '05012345678', registration: '1234567', active: true, password: '123456')
       @coordinator = Coordinator.create(user: @user, course: @course)

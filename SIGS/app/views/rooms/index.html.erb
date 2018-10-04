@@ -1,18 +1,19 @@
 <h1>Salas</h1>
 <table class="table">
+
   <tr>
   <%= form_tag(room_index_post_path, :method => :post) do %>
     <td>
       <%= label_tag("Nome") %>
-      <%= text_field_tag 'name', nil, placeholder: 'Digite o nome da sala...', size: '40', class: 'form-control' %>
+      <%= text_field_tag 'name', @filter[:name_selected], placeholder: 'Digite o nome da sala...', size: '40', class: 'form-control' %>
     </td>
     <td>
       <%= label_tag("Código") %>
-      <%= text_field_tag 'code', nil, placeholder: 'Digite o código da sala...', size: '25', class: 'form-control' %>
+      <%= text_field_tag 'code', @filter[:code_selected], placeholder: 'Digite o código da sala...', size: '25', class: 'form-control' %>
     </td>
     <td>
       <%= label_tag("Capacidade") %>
-      <%= number_field_tag 'capacity', nil, placeholder: 'Insira a quantidade...', size: '500', class: 'form-control' %>
+      <%= number_field_tag 'capacity', @filter[:capacity_selected], placeholder: 'Insira a quantidade...', size: '500', class: 'form-control' %>
     </td>
   </tr>
 
@@ -20,20 +21,40 @@
     <td>
       <%= label_tag("Ala") %>
       <% itens = [["NORTE"], ["CENTRAL"], ["SUL"]] %>
-      <%= select_tag 'wing', options_for_select(itens, " "), include_blank: true %>
+      <% if @filter[:wing_selected] == ""%>
+        <%= select_tag 'wing', options_for_select(itens, " "), include_blank: true %>
+      <% else %>
+        <%= select_tag 'wing', options_for_select(itens, @filter[:wing_selected]), include_blank: true %>
+      <% end %>
     </td>
     <td>
       <%= label_tag("Prédio") %>
-      <%= select_tag 'building_id', options_for_select(@buildings.map{ |building| [building.name, building.id, { 'data-wing' => building.wing }] }), include_blank: true %>
+      <% if @filter[:building_selected] == nil%>
+        <%= select_tag 'building_id', options_for_select(@buildings.map{ |building| [building.name, building.id, { 'data-wing' => building.wing }] }), include_blank: true %>
+      <% else %>
+        <%= select_tag 'building_id', options_for_select(@buildings.map{ |building| [building.name, building.id, { 'data-wing' => building.wing }] }, selected: @filter[:building_selected].id), include_blank: true %>
+      <% end %>
     </td>
     <td>
       <%= label_tag("Departamento") %>
-      <% if @user_department == nil%>
-        <%= select_tag 'department_id', options_for_select(@department.map{ |department| [department.name, department.id ]}), include_blank: true %>
+      <% if @filter[:department_selected] == nil%>
+        <% if @user_department == nil %>
+          <%= select_tag 'department_id', options_for_select(@department.map{ |department| [department.name, department.id, { 'data-campus' => department.campus.name } ]}), include_blank: true %>
+        <% else %>
+          <%= select_tag 'department_id', options_for_select(@department.map{ |department| [department.name, department.id, { 'data-campus' => department.campus.name } ]}, selected: @user_department.id), include_blank: true %>
+        <% end %>
       <% else %>
-        <%= select_tag 'department_id', options_for_select(@department.map{ |department| [department.name, department.id ]}, selected: @user_department.id), include_blank: true %>
+        <%= select_tag 'department_id', options_for_select(@department.map{ |department| [department.name, department.id, { 'data-campus' => department.campus.name }] }, selected: @filter[:department_selected].id), include_blank: true %>
       <% end %>
-      </td>
+    </td>
+    <td>
+    <%= label_tag("Campus") %>
+      <% if @filter[:campus_selected] == nil%>
+        <%= select_tag 'campus_id', options_for_select(@campi.map{ |campus| [campus.name, campus.id] }), include_blank: true %>
+      <% else %>
+        <%= select_tag 'campus_id', options_for_select(@campi.map{ |campus| [campus.name, campus.id] }, @filter[:campus_selected].id), include_blank: true %>
+      <% end %>
+    </td>
   </tr>
 
   <tr>
@@ -43,14 +64,14 @@
         <span class="fa fa-search"></span> Pesquisar
       <% end %>
     </td>
-    <td colspan="2">
+    <td>
       <br>
       <%= link_to room_index_path, class: "btn btn-primary pull-right" do %>
         <span class="fa fa-eraser"></span> Limpar Filtros
       <% end %>
     </td>
   </tr>
-
+  
 <% end %>
 
 </table>
@@ -75,6 +96,7 @@
         <th>Nome</th>
         <th>Ativo</th>
         <th>Prédio</th>
+        <th>Quantidade</th>
         <% if permission[:level] != 0 %>
           <th style="text-align:center">Alterar</th>
         <% end %>
@@ -89,6 +111,7 @@
           <td><%= room.name %></td>
           <td id="room-status"><%=  ((room.active) ? 'Sim' : 'Não')  %></td>
           <td><%= room.building.name %></td>
+          <td><%= room.capacity %></td>
           <% if permission[:level] != 0 %>
             <td style="text-align:center">
               <%= link_to room_edit_path(room.id), :id => 'Icon edit' do %>
