@@ -8,16 +8,14 @@
     <h1 class="form-title">Novo Usuário</h1>
   </div>
 
-  <!--ul id="erro-message">
-    <% @user.errors.messages.values.each do |msg| %>
-      <% msg.each do |m| %>
-        <li><%= m %></li>
-      <%end %>
-    <% end %>
-  </ul-->
-
   <div id="form-new-user">
-
+    <ul id="erro-message">
+      <% @user.errors.messages.values.each do |msg| %>
+        <% msg.each do |m| %>
+          <li><%= m %></li>
+        <%end %>
+      <% end %>
+    </ul>
     <%= form_for @user, url: user_create_path,  :html => {:role => 'form'} do |f| %>
       <%= f.hidden_field :active, :value => '0' %>
 
