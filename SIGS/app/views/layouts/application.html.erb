@@ -12,16 +12,16 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag "particles", "data-turbolinks-track" => true  %>
   </head>
 
   <body>
-
     <div class="alertContainer">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
     </div>
-
     <% if current_user %>
       <%= render 'layouts/navbar' %>
       <main class="mainConteiner">
@@ -34,6 +34,6 @@
       <main class="container container-fluid myContainer" id="">
         <%= yield %>
       </main>
-    <% end %>
+    <% end >
   </body>
 </html>
