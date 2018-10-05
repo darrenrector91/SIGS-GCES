@@ -14,26 +14,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag "particles", "data-turbolinks-track" => true  %>
+    <%= javascript_include_tag "jquery.particleground.min", "data-turbolinks-track" => true  %>
+
   </head>
 
   <body>
-    <div class="alertContainer">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-    </div>
-    <% if current_user %>
-      <%= render 'layouts/navbar' %>
-      <main class="mainConteiner">
-        <div class="container">
-          <%= yield %>
+        <div class="alertContainer">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
         </div>
-      </main>
-      <%= render 'layouts/footer' %>
-    <% else %>
-      <main class="container container-fluid myContainer" id="">
-        <%= yield %>
-      </main>
-    <% end >
+
+        <% if current_user %>
+          <%= render 'layouts/navbar' %>
+          <main class="mainConteiner">
+            <div class="container">
+              <%= yield %>
+            </div>
+          </main>
+          <%= render 'layouts/footer' %>
+        <% else %>
+          <main class="container container-fluid myContainer" id="">
+            <%= yield %>
+          </main>
+        <% end %>
+
+
   </body>
 </html>
