@@ -1,6 +1,7 @@
 <div class="background"></div>
-
-<div class="form-register">
+<div id="particles">
+  <div id="intro">
+    <div class="form-register">
 
   <div class="flexContainer">
     <a class="form-login-brand" href="/">SIGS</a>
@@ -58,19 +59,19 @@
           <%= f.password_field :password_confirmation, class: 'input-field'%>
 
           <div id="dropdown-coordinator">
-      
+
               <%= f.fields_for :coordinator do |ff| %>
                 <p class="dropText">Curso</p>
                 <%=ff.collection_select(:course_id,Course.all,:id,:name, include_blank: true)%>
               <% end %>
-       
+
           </div>
         </div>
 
         <%= f.submit "Enviar", class: 'button-success' %>
       </div>
-      
-      
+
+
     <% end %>
   </div><!--  #/form-new-user-->
   <div class="form-login-footer">
@@ -81,4 +82,6 @@
     <figure><a href="http://www.unb.br"><%= image_tag("rodape_unb.png") %></a></figure>
   </div-->
 
+</div>
+  </div>
 </div>
