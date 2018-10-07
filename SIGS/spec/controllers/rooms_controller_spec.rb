@@ -6,9 +6,11 @@ RSpec.describe RoomsController, type: :controller do
     before(:each) do
       @building = Building.create(code: 'ICC', name: 'ICC', wing: 'norte')
 
-      @department = Department.create(code: '789', name: 'Engenharia')
+      @campus = Campus.create(name: 'Gama')
 
-      @department_2 = Department.create(code: '749', name: 'PRC')
+      @department = Department.create(code: '789', name: 'Engenharia', campus_id: @campus.id)
+
+      @department_2 = Department.create(code: '749', name: 'PRC', campus_id: @campus.id)
 
       @discipline = Discipline.create(code: '876', name: 'Cálculo 3', department: @department)
 

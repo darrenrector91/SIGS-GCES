@@ -10,7 +10,8 @@ RSpec.describe SchoolRoomsController, type: :controller do
         password: '123456', registration:'1100061', cpf:'05601407380', active: true)
       @user_2 = User.create(name: 'joao silva', email: 'joaferrera@unb.br',
         password: '123456', registration:'1100069', cpf:'04601407380', active: true)
-      @department = Department.create(name: 'Departamento de Matemática', code: '007')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(name: 'Departamento de Matemática', code: '007', campus_id: @campus.id)
       @course1 = Course.create(name:'Matemática', code: '009', department: @department, shift: 1)
       @course2 = Course.create(name:'Matemática', code: '001', department: @department, shift: 2)
       @course3 = Course.create(name:'Fisica', code: '011', department: @department, shift: 1)
