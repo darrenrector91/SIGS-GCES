@@ -29,6 +29,7 @@ SIGS/coverage
 SIGS/script/dbScript
 SIGS/.generators
 SIGS/.rakeTasks
+SIGS/db/schema.rb
 
 # Ignore IDE files
 .idea/

@@ -1,3 +1,45 @@
 <!--<!DOCTYPE html>-->
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= render 'layouts/sidebar' %>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>SIGS</title>
+    <%= favicon_link_tag %>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Sistema de Alocação de Salas Inteligente da UnB.">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300" rel="stylesheet">
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/sidebar' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag "particles", "data-turbolinks-track" => true  %>
+    <%= javascript_include_tag "jquery.particleground.min", "data-turbolinks-track" => true  %>
+
+  </head>
+
+  <body>
+        <div class="alertContainer">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+        </div>
+
+        <% if current_user %>
+          <%= render 'layouts/navbar' %>
+          <main class="mainConteiner">
+            <div class="container">
+              <%= yield %>
+            </div>
+          </main>
+        <% else %>
+          <main class="container container-fluid myContainer" id="">
+            <%= yield %>
+          </main>
+        <% end %>
+  </body>
+</html>

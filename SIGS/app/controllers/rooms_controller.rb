@@ -8,16 +8,18 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
     @rooms = @rooms.paginate(page: params[:page], per_page: 10)
-
     @buildings = Building.all
     @department = Department.all
     @user_department = find_user_department
+    @campi = Campus.all
+    @filter = fetch_filters
     filter_by_name
     filter_by_code
     filter_by_capacity
     filter_by_buildings
     filter_by_wings
     filter_by_department
+    filter_by_campus
   end
 
   def find_user_department
@@ -97,6 +99,9 @@ class RoomsController < ApplicationController
       :time_grid_id,
       :building_id,
       :department,
+      :department_id,
+      :campus_id,
+      :wing,
       category_ids: []
     )
   end

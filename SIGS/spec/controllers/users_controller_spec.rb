@@ -100,7 +100,8 @@ RSpec.describe UsersController, type: :controller do
     before(:each) do
       @user = User.create(name: 'joao silva', email: 'joaosilva@unb.br',
         password: '123456', registration:'1100061', cpf:'05601407380', active: true)
-      @department = Department.create(name: 'Departamento de Computação')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(name: 'Departamento de Computação', campus_id: @campus.id)
       @discipline = Discipline.create(code: '876', name: 'Cálculo 3', department: @department)
       @course = Course.create(name: 'Engenharia de Software', department: @department)
       @coordinator = Coordinator.create(user: @user, course: @course)
@@ -157,7 +158,8 @@ RSpec.describe UsersController, type: :controller do
     before(:each) do
       @user_1 = User.create(name: 'joao silva', email: 'joaosilva@unb.br',
         password: '123456', registration:'1100061', cpf:'05601407380', active: true)
-      @department = Department.create(name: 'Departamento de Computação')
+      @campus = Campus.create(name: 'Gama')
+      @department = Department.create(name: 'Departamento de Computação', campus_id: @campus.id)
       @course = Course.create(name: 'Engenharia de Software', department: @department)
       @coordinator = Coordinator.create(user: @user_1, course: @course)
       @user_adm = User.create(name: 'Luiz Guilherme', email: 'luiz@unb.br',
