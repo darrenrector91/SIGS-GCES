@@ -1,11 +1,13 @@
 # SIGS - Sistema Inteligente de Gestão de Salas
 
-<p align="center"><img width="300" src="https://raw.githubusercontent.com/wiki/fga-gpp-mds/2017.1-SIGS/images/logo/cerebro_black.png"></p>
+
+![screen shot 2018-10-08 at 18 43 00](https://user-images.githubusercontent.com/18387694/46635580-54b54c00-cb2b-11e8-8e16-b3d2e41de814.png)
+
 
 [![BuildStatus](https://travis-ci.org/GCES-2018-2/SIGS-GCES.svg?branch=develop)](https://travis-ci.org/GCES-2018-2/SIGS-GCES)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0fbe067cc9bb564ce2bf/maintainability)](https://codeclimate.com/github/GCES-2018-2/SIGS-GCES/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0fbe067cc9bb564ce2bf/test_coverage)](https://codeclimate.com/github/GCES-2018-2/SIGS-GCES/test_coverage)
-[![Ruby](https://img.shields.io/badge/ruby-2.3.1-blue.svg)](https://www.ruby-lang.org)
+[![Ruby](https://img.shields.io/badge/ruby-2.5.1-blue.svg)](https://www.ruby-lang.org)
 [![Rails](https://img.shields.io/badge/rails-5.0.2-blue.svg)](http://rubyonrails.org/)
 [![MIT License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -40,7 +42,7 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
 * Build the container image
 
       $ docker-compose build
-      
+
 * Or download it from [DockerHub](https://hub.docker.com/r/projetosigs/sigs-gces/)
 
 * Run the container
@@ -107,7 +109,7 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
       Coordinator User
       e-mail: "coordenador@unb.br"
       password: "123456"
-      
+
       Administrative Assistant
       e-mail: "adm@unb.br"
       password: "123456"
