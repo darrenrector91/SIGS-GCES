@@ -1,4 +1,7 @@
-<div class="sidebarComponent">
+<html>
+<body>
+  <button onclick="myFunction()" >Close</button>
+<div class="sidebarComponent" id="sidebarComponent">
   <div class="personalInfo">
     <img class="foto-perfil">
     <div class="informacoes">
@@ -36,5 +39,22 @@
       </label>
     </div>
   </div>
-
 </div>
+
+<!-- TODO SEPARA O SCRIPT DO BAGULHO -->
+<!-- TODO Arrumar Botão -->
+<!-- TODO Arrumar display do botão --> 
+
+<script>
+function myFunction() {
+    var x = document.getElementById("sidebarComponent");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
