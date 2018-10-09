@@ -14,6 +14,9 @@
 
         <%= user.label :name, "Nome: " %>
         <%= user.text_field :name, class: "form-control", placeholder: "Digite seu nome completo" %><br>
+        
+        <%= user.label :image, "Avatar: " %>
+        <%= user.file_field :image, class: "form-control" %><br>
 
         <%= user.label :password, "Senha: " %>
         <%= user.password_field :password, class: "form-control", placeholder: "Digite sua senha" %><br>
