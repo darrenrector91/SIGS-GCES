@@ -1,5 +1,5 @@
 // Função responsável por Sumir / Aparecer sidebar
-function myFunction() {
+function hideSidebar() {
     document.getElementById("sidebarComponent").classList.toggle('active');
 
 }

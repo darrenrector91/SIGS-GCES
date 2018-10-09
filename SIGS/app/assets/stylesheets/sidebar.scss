@@ -2,16 +2,15 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-// top: 0;
   height: 100%;
   width: 270px !important;
   box-shadow: 0 0px 8px  rgba(0, 0, 0, 0.2), 0 0px 20px  rgba(0, 0, 0, 0.19);
-  left: -270px;
-  transition: all 400ms linear;
+  left: 0px;
+  transition: all 500ms linear;
 }
 
 .sidebarComponent.active{
-  left: 0px;
+  left: -270px;
 }
 
 
