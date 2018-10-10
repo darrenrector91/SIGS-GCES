@@ -28,8 +28,11 @@
           <%= f.label :email, "E-mail" %>
           <%= f.text_field :email, class: 'input-field', placeholder: 'nome@unb.br' %>
 
-          <%= f.label :cpf, "CPF" %>
-          <%= f.text_field :cpf, class: 'input-field'%>
+          <%= f.label :cpf, "CPF " %>
+          <%= f.text_field :cpf, class: 'form-control' %>
+
+          <%= f.label :image, "Avatar" %>
+          <%= f.file_field :image, class: 'form-control' %>
 
           <%= f.label :role, "Cargo" %>
           <fieldset id="type">
