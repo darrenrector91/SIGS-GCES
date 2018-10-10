@@ -37,21 +37,29 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
 
 * Build the container image
   * Development Environment
-  
-      `$ docker-compose -f docker-compose-dev.yml build`
+
+      ```
+      $ docker-compose -f docker-compose-dev.yml build
+      ```
     
   * Production Environment
   
-      `$ docker-compose -f docker-compose-prod.yml build`
+      ```
+      $ docker-compose -f docker-compose-prod.yml build
+      ```
     
 * Run the container
   * Development Environment
-  
-  `$ docker-compose -f docker-compose-dev.yml up -d`
+
+      ```
+      $ docker-compose -f docker-compose-dev.yml up -d
+      ```
     
   * Production Environment
   
-  `$ docker-compose -f docker-compose-prod.yml up -d`
+      ```
+      $ docker-compose -f docker-compose-prod.yml up -d
+      ```
   
 * Set up the Database
 
