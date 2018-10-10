@@ -58,49 +58,6 @@ h1 {
   align-items: flex-end;
 }
 
-.alertContainer {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-  position: absolute;
-  top: 64px;
-  right: 0;
-  z-index: 9999;
-}
-.alert.alert-success,
-.alert.alert-notice,
-.alert.alert-error{
-  border-radius:0;
-  color:#FFF;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding:10px;
-  margin: 0;
-  // margin-bottom: 10px;
-  border: none;
-  width: 250px;
-  z-index: 100;
-}
-
-.alert.alert-success {
-  background: #73d97d;
-}
-
-.alert.alert-notice {
-  background: #388de2;
-}
-
-.alert.alert-error {
-  background: #e23838;
-}
-
-.container.container-fluid .mainConteiner.table {
-  width: 100%;
-}
-
-// #erro-message {
-//   max-width: 200px;
-// }
-
 .far-room {
   background-color: #ffb3b3;
 }
@@ -118,7 +75,6 @@ h1 {
   height: fit-content;
 }
 
-/* Fontes */
 @font-face {
   font-family: 'Sawasdee';
   src:url('Sawasdee.ttf');
