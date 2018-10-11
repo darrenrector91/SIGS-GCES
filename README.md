@@ -17,13 +17,9 @@ SIGS is a Ruby on Rails website project design for UnB (University of Brasília)
 
 To see the features of the project [Click Here](https://github.com/fga-gpp-mds/2017.1-SIGS/releases).
 
-## Heroku Deploy
-
-To View Application Deploy [Click Here](https://sigsunb.herokuapp.com)
-
 ## License
 
-To see the license of the project [Click Here](https://github.com/fga-gpp-mds/2017.1-SIGS/blob/master/LICENSE)
+To see the license of the project [Click Here](https://github.com/GCES-2018-2/SIGS-GCES/blob/develop/LICENSE)
 
 ## Getting Started
 
@@ -40,15 +36,31 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
   - [Download docker-compose](https://docs.docker.com/compose/install/)
 
 * Build the container image
+  * Development Environment
 
-      $ docker-compose build
-
-* Or download it from [DockerHub](https://hub.docker.com/r/projetosigs/sigs-gces/)
-
+      ```
+      $ docker-compose -f docker-compose-dev.yml build
+      ```
+    
+  * Production Environment
+  
+      ```
+      $ docker-compose -f docker-compose-prod.yml build
+      ```
+    
 * Run the container
+  * Development Environment
 
-      $ docker-compose up -d
-
+      ```
+      $ docker-compose -f docker-compose-dev.yml up -d
+      ```
+    
+  * Production Environment
+  
+      ```
+      $ docker-compose -f docker-compose-prod.yml up -d
+      ```
+  
 * Set up the Database
 
   To create the database, run the migration and populate it with fictional data
@@ -56,47 +68,6 @@ There are 2 ways to set up your environment. You can use Docker to simulate isol
       $ docker-compose run web rails db:create db:migrate db:seed
 
 * Open the internet browser in http://localhost:3000/.
-
-
-### Set up using Vagrant
-* Install the virtual machine software [VirtualBox](https://www.virtualbox.org).
-
-      $ sudo apt-get install virtualbox
-
-* Install the virtual environment [Vagrant](https://www.vagrantup.com).
-
-      $ sudo apt-get install vagrant
-
-* Clone the project Repository.
-
-      $ git clone https://github.com/fga-gpp-mds/2017.1-SIGS.git
-
-* In the folder of project, rise the virtual environment.
-
-      $ vagrant up --provision
-
-* Run the virtual environment.
-
-      $ vagrant ssh
-
-* Get in the folder of project on [Vagrant](https://www.vagrantup.com).
-
-      $ cd vagrant/SIGS
-
-* Install all the gems used in the project.
-
-      $ bundle install
-
-* Create and populate all the tables of the [MySql](https://www.mysql.com) Database.
-
-      $ rails db:create db:migrate db:seed
-
-* Run the Rails server project on [Vagrant](https://www.vagrantup.com).
-
-      $ rails s -b 192.168.2.15
-
-* Open the internet browser in http://192.168.2.15:3000.
-
 
 ### Using the application
 
